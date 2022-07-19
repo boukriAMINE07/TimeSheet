@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "02c2e974-c97f-4045-af31-855145eb89d2"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -27,9 +30,24 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "node_modules/dropzone/dist/dropzone.css",
+              "node_modules/@mdi/font/css/materialdesignicons.min.css",
+              "node_modules/prismjs/themes/prism-okaidia.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+              "node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
+              "node_modules/feather-icons/dist/feather.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/apexcharts/dist/apexcharts.min.js",
+              "node_modules/dropzone/dist/dropzone.js",
+              "node_modules/prismjs/plugins/toolbar/prism-toolbar.min.js",
+              "node_modules/prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
