@@ -1,0 +1,132 @@
+<div class="container-fluid p-6">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-12">
+      <!-- Page header -->
+
+      <div class="border-bottom pb-4 mb-4">
+        <h3 class="mb-0 fw-bold">General</h3>
+
+      </div>
+
+    </div>
+  </div>
+  <div class="row mb-8">
+    <div class="col-xl-2 col-lg-4 col-md-12 col-12">
+      <div class="mb-4 mb-lg-0">
+        <h4 class="mb-1">Details Project </h4>
+      </div>
+
+    </div>
+
+    <div class="col-xl-10 col-lg-8 col-md-12 col-12">
+      <!-- card -->
+      <div class="card">
+        <!-- card body -->
+        <div class="card-body">
+
+          <!-- col -->
+
+          <div>
+            <!-- border -->
+
+            <form>
+              <!-- row -->
+
+
+
+              <!-- row -->
+              <div class=" row">
+                <label  class="col-sm-4 col-form-label
+                          form-label"><strong>Name Of the Project :</strong></label>
+
+                <div class="col-md-8 col-12">
+                  <p class="col-form-label"> {{currentProject.name}}</p>
+                </div>
+              </div>
+              <!-- row -->
+              <div class=" row">
+                <label  class="col-sm-4 col-form-label
+                          form-label"><strong> Description Of the Project :</strong></label>
+
+                <div class="col-md-8 col-12">
+                  <p class="col-form-label">{{currentProject.description}}</p>
+                </div>
+              </div>
+              <!-- row -->
+              <div class=" row">
+                <label  class="col-sm-4 col-form-label
+                          form-label"><strong>Start Date of the Project :</strong></label>
+
+                <div class="col-md-8 col-12">
+                  <p class="col-form-label"> {{currentProject.startDate}}</p>
+                </div>
+              </div>
+              <!-- row -->
+              <div class=" row">
+                <label  class="col-sm-4 col-form-label
+                          form-label"><strong>End Date of the Project :</strong></label>
+
+                <div class="col-md-8 col-12">
+                  <p class="col-form-label"> {{currentProject.endDate}}</p>
+                </div>
+              </div>
+              <!-- row -->
+              <div class=" row">
+                <label  class="col-sm-4 col-form-label
+                          form-label"><strong> Total Hours of the Project :</strong></label>
+
+                <div class="col-md-8 col-12">
+                  <p class="col-form-label">{{currentProject.totalHours}} &nbsp; Hours</p>
+                </div>
+              </div>
+              <!-- row -->
+              <div class="row ">
+
+
+
+                <div class=" col-md-6 mt-4">
+                  <button type="submit" routerLink="/project/editProject/{{currentProject.id}}" class="btn btn-primary"> Edit Information</button>
+                </div>
+                <div class=" col-md-6 mt-4">
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xl-2 col-lg-4 col-md-12 col-12">
+      <div class="mb-4 mb-lg-0">
+        <h4 class="mb-1">Delete Project</h4>
+      </div>
+
+    </div>
+
+    <div class="col-xl-10 col-lg-8 col-md-12 col-12">
+      <!-- card -->
+
+      <div class="card mb-6">
+        <!-- card body -->
+        <div class="card-body">
+          <div class="mb-6">
+            <h4 class="mb-1">Danger Zone </h4>
+
+          </div>
+          <div>
+            <!-- text -->
+            <p>Delete any and all content you have, such as articles, comments, your reading list or chat messages. Allow your username to become available to anyone.</p>
+            <a   (click)="deleteProject()" class="btn btn-danger"> Delete Project</a>
+            <p class="small mb-0 mt-3">Feel free to contact with any <a href="#">dashui@example.com</a> questions.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
