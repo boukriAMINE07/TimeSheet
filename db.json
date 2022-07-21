@@ -1,0 +1,44 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "name": "Slack Team UI Design",
+      "description": "Slack Team UI Design description ",
+      "startDate": "01/01/2022",
+      "endDate": "01/02/2022",
+      "totalHours": 240
+    },
+    {
+      "id": 2,
+      "name": "GitHub Satellite",
+      "description": "GitHub Satellite Description ",
+      "startDate": "01/02/2022",
+      "endDate": "01/03/2022",
+      "totalHours": 230
+    },
+    {
+      "id": 3,
+      "name": "3D Character Modelling",
+      "description": "3D Character Modelling Description ",
+      "startDate": "01/03/2022",
+      "endDate": "01/04/2022",
+      "totalHours": 218
+    },
+    {
+      "id": 4,
+      "name": "Webapp Design System",
+      "description": "Webapp Design System Description",
+      "startDate": "01/04/2022",
+      "endDate": "01/05/2022",
+      "totalHours": 190
+    },
+    {
+      "id": 5,
+      "name": "Github Event Design",
+      "description": "Github Event Design Description ",
+      "startDate": "01/04/2022",
+      "endDate": "01/05/2022",
+      "totalHours": 150
+    }
+  ]
+}
