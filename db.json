@@ -1,14 +1,6 @@
 {
   "projects": [
     {
-      "id": 1,
-      "name": "Slack Team UI Design",
-      "description": "Slack Team UI Design description ",
-      "startDate": "01/01/2022",
-      "endDate": "01/02/2022",
-      "totalHours": 240
-    },
-    {
       "id": 2,
       "name": "GitHub Satellite",
       "description": "GitHub Satellite Description ",
@@ -33,12 +25,21 @@
       "totalHours": 190
     },
     {
-      "id": 5,
       "name": "Github Event Design",
       "description": "Github Event Design Description ",
       "startDate": "01/04/2022",
       "endDate": "01/05/2022",
-      "totalHours": 150
+      "totalHours": 150,
+      "id": 5
+    }
+  ],
+  "consultants": [
+    {
+      "name": "hassan123",
+      "tel": "0616287174",
+      "password": "12345655565565",
+      "email": "abdoaboulfalah8@gmail.com",
+      "id": 1
     }
   ]
 }
