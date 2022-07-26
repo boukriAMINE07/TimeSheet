@@ -41,11 +41,11 @@
       "id": 6
     },
     {
-      "name": "projet1",
-      "description": "kkkkk",
-      "startDate": "2022-06-30",
-      "endDate": "2022-07-07",
-      "totalHours": 3,
+      "name": "project test",
+      "description": "description project test",
+      "startDate": "2022-07-25",
+      "endDate": "2022-07-26",
+      "totalHours": 8,
       "id": 7
     }
   ],
@@ -82,7 +82,7 @@
       "projectname": "projet 1",
       "tachename": "tache 2",
       "consultant": "consultant 5",
-      "totalHours": "5 H",
+      "totalHours": 5,
       "id": 12
     }
   ],

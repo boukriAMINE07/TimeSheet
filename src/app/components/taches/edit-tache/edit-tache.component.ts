@@ -44,7 +44,7 @@ export class EditTacheComponent implements OnInit {
     this.tacheService.updateTache(this.currentTache.id,data)
       .subscribe(response=>{
         console.log(response)
-        this.router.navigate([`single-tache/${this.currentTache.id}`])
+        this.router.navigate([`/task/single-task/${this.currentTache.id}`])
       },error => {
         console.log(error);
       })

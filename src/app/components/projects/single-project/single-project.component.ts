@@ -42,7 +42,7 @@ export class SingleProjectComponent implements OnInit {
       this.projectService.deleteProject(this.currentProject.id)
                           .subscribe(response=>{
                               console.log(response)
-                            this.router.navigate(['/home'])
+                            this.router.navigate(['/project/home'])
                           },error => {
                             console.log(error);
                             }

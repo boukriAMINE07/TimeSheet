@@ -22,8 +22,8 @@ import {NewConsultantComponent} from "./components/Consultant/new-consultant/new
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
-  {path:"home",component:HomeComponent},
+  {path:'',redirectTo:'project/home',pathMatch:'full'},
+  {path:"project/home",component:HomeComponent},
   {path:"project/newProject",component:NewProjectComponent},
   {path:"project/editProject/:id",component:EditProjectComponent},
   {path:"project/single-project/:id",component:SingleProjectComponent},
@@ -33,11 +33,11 @@ const routes: Routes = [
   {path:"admin/signIn",component:SignInAdminComponent},
   {path:"admin/forgetPassword",component:ForgetPasswordAdminComponent},
   {path:"error",component:ErrorComponent},
-  {path:"profilconsultant",component:ProfilconsultantComponent},
-  {path:"formtache",component:FormtacheComponent},
-  {path:"hometaches",component:HometachesComponent},
-  {path:"single-tache/:id",component:SingleTacheComponent},
-  {path:"edit-tache/:id",component:EditTacheComponent},
+  {path:"consultant/profil",component:ProfilconsultantComponent},
+  {path:"task/newTask",component:FormtacheComponent},
+  {path:"task/home",component:HometachesComponent},
+  {path:"task/single-task/:id",component:SingleTacheComponent},
+  {path:"task/edit-task/:id",component:EditTacheComponent},
   {path:"consultant/listeConsultant",component:ListeConsultantComponent},
   {path:"consultant/singleConsultant/:id",component:SingleConsultantComponent},
   {path:"consultant/editConsultant/:id",component:EditConsultantComponent},

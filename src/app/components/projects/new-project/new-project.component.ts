@@ -35,7 +35,7 @@ export class NewProjectComponent implements OnInit {
                           response=>{
                             console.log(response);
                             this.submitted=true;
-                            this.router.navigate(["/home"])
+                            this.router.navigate(["/project/home"])
                           },error=>{
                             console.log(error);
                           }
