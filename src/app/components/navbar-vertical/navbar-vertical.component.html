@@ -1,8 +1,8 @@
 <nav class="navbar-vertical navbar">
   <div class="nav-scroller">
     <!-- Brand logo -->
-    <a class="navbar-brand" href="index.html">
-      <h3 style="color: white"><strong> Expertise Data</strong></h3>
+    <a style="color: white" class="navbar-brand" href="#">
+      <img src="assets/images/brand/logo/logo.png" alt="" />&nbsp;Expertise Data
     </a>
     <!-- Navbar nav -->
     <ul class="navbar-nav flex-column" id="sideNavbar">
@@ -33,12 +33,12 @@
         <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="profile.html">
+              <a class="nav-link" routerLink="/profilconsultant">
                 Profile
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link has-arrow   "  href="settings.html" >
+              <a class="nav-link has-arrow "  href="settings.html" >
                 Settings
               </a>
 
@@ -82,6 +82,9 @@
               <a class="nav-link " routerLinkActive="active" routerLink="admin/signIn"> Sign In</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link "  routerLink="admin/createConsultant"> Sign Up</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link " routerLink="admin/forgetPassword">
                 Forget Password
               </a>
@@ -100,9 +103,7 @@
             <li class="nav-item">
               <a class="nav-link " routerLinkActive="active" routerLink="consultant/signIn"> Sign In</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link " routerLinkActive="active" routerLink="consultant/signUp"> Sign Up</a>
-            </li>
+
             <li class="nav-item">
               <a class="nav-link " routerLinkActive="active" routerLink="consultant/forgetPassword">
                 Forget Password

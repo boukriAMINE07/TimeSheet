@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Consultant} from "../../../models/consultant.model";
+import {Consultant} from "../../../../models/consultant.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ConsultantService} from "../../../services/consultant.service";
+import {ConsultantService} from "../../../../services/consultant.service";
 import {Router} from "@angular/router";
 
 @Component({

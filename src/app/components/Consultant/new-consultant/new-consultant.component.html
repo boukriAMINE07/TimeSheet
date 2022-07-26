@@ -4,7 +4,7 @@
       <!-- Page header -->
 
       <div class="border-bottom pb-4 mb-4">
-        <h3 class="mb-0 fw-bold">Edit Project</h3>
+        <h3 class="mb-0 fw-bold">New Consultant</h3>
 
       </div>
 
@@ -30,49 +30,43 @@
             </div>
             <form>
               <!-- row -->
+              <div class="mb-3 row">
+                <label for="name"  class="col-sm-4 col-form-label form-label">Nom : </label>
+                <div class="col-md-8 col-12">
+                  <input type="text" class="form-control" [(ngModel)]="consultant.name" name="name" placeholder="Nom de consultant" id="name" required>
+                </div>
 
+              </div>
 
               <!-- row -->
               <div class="mb-3 row">
-                <label for="name" class="col-sm-4 col-form-label
-                          form-label">name</label>
+                <label for="tel" class="col-sm-4 col-form-label form-label">Télephone :</label>
                 <div class="col-md-8 col-12">
-                  <textarea type="text" class="form-control" [(ngModel)]="currentConsultant.name" name="name" placeholder="name" id="name" required></textarea>
+                  <input type="text" class="form-control" [(ngModel)]="consultant.tel" name="tel" placeholder="tel" id="tel" required>
                 </div>
               </div>
               <!-- row -->
               <div class="mb-3 row">
-                <label for="email" class="col-sm-4 col-form-label
-                          form-label">Email </label>
+                <label for="email" class="col-sm-4 col-form-label form-label">email :</label>
                 <div class="col-md-8 col-12">
-                  <input type="text" [(ngModel)]="currentConsultant.email" name="email" class="form-control" value="" id="email" required>
+                  <input type="text" class="form-control" [(ngModel)]="consultant.email" name="email" placeholder="email" id="email" required>
                 </div>
               </div>
-              <div class="mb-3 row">
-                <label for="tel" class="col-sm-4 col-form-label
-                          form-label">Telephone </label>
-                <div class="col-md-8 col-12">
-                  <input type="text" [(ngModel)]="currentConsultant.tel" name="tel" class="form-control" value="Telephone" id="tel" required>
-                </div>
-              </div>
+              <!-- row -->
               <div class="mb-3 row">
                 <label for="password" class="col-sm-4 col-form-label
                           form-label">Password </label>
                 <div class="col-md-8 col-12">
-                  <input type="password" class="form-control" [(ngModel)]="currentConsultant.password" name="totalHours" placeholder="password" id="password" required>
+                  <input type="password" class="form-control" [(ngModel)]="consultant.password" name="password" placeholder="password" id="password" required>
                 </div>
               </div>
-              <!-- row -->
 
-              <!-- row -->
-
-              <!-- row -->
 
               <!-- row -->
               <div class="row align-items-center">
 
                 <div class="offset-md-4 col-md-8 mt-4">
-                  <button type="submit" (click)="editConsultant()" class="btn btn-primary"> Edit
+                  <button type="submit" (click)="saveConsultant()" class="btn btn-primary"> Save
                   </button>
                 </div>
               </div>
