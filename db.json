@@ -1,43 +1,43 @@
 {
   "projects": [
     {
-      "id": 2,
       "name": "GitHub Satellite",
       "description": "GitHub Satellite Description ",
-      "startDate": "01/02/2022",
-      "endDate": "01/03/2022",
-      "totalHours": 230
+      "startDate": "2022-01-01",
+      "endDate": "2022-02-01",
+      "totalHours": 230,
+      "id": 2
     },
     {
-      "id": 3,
       "name": "3D Character Modelling",
       "description": "3D Character Modelling Description ",
-      "startDate": "01/03/2022",
-      "endDate": "01/04/2022",
-      "totalHours": 218
+      "startDate": "2022-02-01",
+      "endDate": "2022-03-01",
+      "totalHours": 218,
+      "id": 3
     },
     {
       "id": 4,
       "name": "Webapp Design System",
       "description": "Webapp Design System Description",
-      "startDate": "01/04/2022",
-      "endDate": "01/05/2022",
+      "startDate": "2022-03-01",
+      "endDate": "2022-04-01",
       "totalHours": 190
     },
     {
       "id": 5,
       "name": "Github Event Design",
       "description": "Github Event Design Description ",
-      "startDate": "01/04/2022",
-      "endDate": "01/05/2022",
+      "startDate": "2022-04-01",
+      "endDate": "2022-05-01",
       "totalHours": 150
     },
     {
       "name": "project 5",
       "description": "aaaa",
-      "startDate": "2022-07-08",
+      "startDate": "2022-06-08",
       "endDate": "2022-07-08",
-      "totalHours": 4,
+      "totalHours": 8,
       "id": 6
     },
     {
@@ -45,7 +45,7 @@
       "description": "kkkkk",
       "startDate": "2022-06-30",
       "endDate": "2022-07-07",
-      "totalHours": null,
+      "totalHours": 3,
       "id": 7
     }
   ],
