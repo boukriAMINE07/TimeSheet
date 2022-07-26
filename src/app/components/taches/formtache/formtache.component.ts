@@ -35,7 +35,7 @@ export class FormtacheComponent implements OnInit {
         response=>{
           console.log(response);
           this.submitted=true;
-          this.router.navigate(["/hometaches"])
+          this.router.navigate(["/task/home"])
         },error=>{
           console.log(error);
         }

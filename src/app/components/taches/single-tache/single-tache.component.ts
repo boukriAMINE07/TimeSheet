@@ -41,7 +41,7 @@ export class SingleTacheComponent implements OnInit {
     this.tacheService.deleteTache(this.currentTache.id)
       .subscribe(response=>{
           console.log(response)
-          this.router.navigate(['/hometaches'])
+          this.router.navigate(['/task/home'])
         },error => {
           console.log(error);
         }

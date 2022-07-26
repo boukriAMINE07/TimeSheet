@@ -1,13 +1,13 @@
 <nav class="navbar-vertical navbar">
   <div class="nav-scroller">
     <!-- Brand logo -->
-    <a style="color: white" class="navbar-brand" href="#">
+    <a style="color: white" class="navbar-brand" routerLink="/project/home">
       <img src="assets/images/brand/logo/logo.png" alt="" />&nbsp;Expertise Data
     </a>
     <!-- Navbar nav -->
     <ul class="navbar-nav flex-column" id="sideNavbar">
       <li class="nav-item">
-        <a class="nav-link has-arrow "  routerLinkActive="active" routerLink="/home">
+        <a class="nav-link has-arrow "  routerLinkActive="active" routerLink="/project/home">
           <i class="nav-icon icon-xs me-2  bi bi-house-door active"></i> &nbsp; Dashboard
         </a>
 
@@ -33,7 +33,7 @@
         <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" routerLink="/profilconsultant">
+              <a class="nav-link" routerLinkActive="active" routerLink="/consultant/profil">
                 Profile
               </a>
             </li>
