@@ -34,5 +34,8 @@ export class ProjectService {
   deleteProject(id:any):Observable<any>{
     return this.http.delete(`${baseUrl}/${id}`);
   }
+  updateHours(id:any,totalHours:any):Observable<any>{
+    return this.http.patch(`${baseUrl}/${id}`, {totalHours:totalHours});
+  }
 
 }

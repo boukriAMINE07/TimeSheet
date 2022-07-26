@@ -27,6 +27,7 @@ import { ListeConsultantComponent } from './components/Consultant/liste-consulta
 import { SingleConsultantComponent } from './components/Consultant/single-consultant/single-consultant.component';
 import { EditConsultantComponent } from './components/Consultant/edit-consultant/edit-consultant.component';
 import { NewConsultantComponent } from './components/Consultant/new-consultant/new-consultant.component';
+import { AllProjectTaskConsultantComponent } from './components/all-project-task-consultant/all-project-task-consultant.component';
 
 
 
@@ -54,6 +55,7 @@ import { NewConsultantComponent } from './components/Consultant/new-consultant/n
     SingleConsultantComponent,
     EditConsultantComponent,
     NewConsultantComponent,
+    AllProjectTaskConsultantComponent,
   ],
   imports: [
     BrowserModule,
