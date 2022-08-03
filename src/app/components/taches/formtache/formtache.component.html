@@ -29,38 +29,36 @@
             <form>
 
               <!-- row -->
-              <div class="mb-3 row">
-                <label for="projectname"  class="col-sm-4 col-form-label form-label">Nom du projet : </label>
-                <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" [(ngModel)]="tache.projectname" name="projectname" placeholder="Name Of The Project" id="projectname" required>
-                </div>
+              <div class="row mb-3">
+                <label class="col-sm-4 col-form-label form-label" >Project Name </label>
+                <div class="col-md-8 col-12"  >
+                <select class="form-select"  aria-label="Default select example">
+                  <option selected disabled >Open this selection menu to choose your project</option>
+                  <option *ngFor="let project of project" value="{{project.project_id}}" name="project" [(ngModel)]="tache.project" (click)="onSelect(project)" >{{project.name}}</option>
 
+                </select>
+                </div>
               </div>
+
               <!-- row -->
               <div class="mb-3 row">
                 <label for="tachename"  class="col-sm-4 col-form-label form-label">Nom de tache : </label>
                 <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" [(ngModel)]="tache.tachename" name="tachename" placeholder="tachename" id="tachename" required>
+                  <input type="text" class="form-control" [(ngModel)]="tache.name" name="name" placeholder="tachename" id="tachename" required>
                 </div>
 
               </div>
 
               <!-- row -->
               <div class="mb-3 row">
-                <label for="consultant"  class="col-sm-4 col-form-label form-label">Nom de consultant : </label>
+                <label for="consultant"  class="col-sm-4 col-form-label form-label">Description : </label>
                 <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" [(ngModel)]="tache.consultant" name="consultant" placeholder="consultant" id="consultant" required>
+                  <textarea type="text" class="form-control" [(ngModel)]="tache.description" name="description" placeholder="Description" id="consultant" required></textarea>
                 </div>
 
               </div>
               <!-- row -->
-              <div class="mb-3 row">
-                <label for="totalHours"  class="col-sm-4 col-form-label form-label">Nombre d'heures :</label>
-                <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" [(ngModel)]="tache.totalHours" name="totalHours" placeholder="totalHours" id="totalHours" required>
-                </div>
 
-              </div>
 
 
 

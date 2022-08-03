@@ -34,8 +34,8 @@
             <tr>
               <th>Nom de projet</th>
               <th>Nom de tache</th>
-              <th>Consultant</th>
-              <th>Hours</th>
+              <th>Description</th>
+
             </tr>
             </thead>
             <tbody>
@@ -45,22 +45,19 @@
                   <div class="d-flex
                             align-items-center">
                     <div class="ms-3 lh-1">
-                      <h5 class=" mb-1"> <a routerLink="/task/single-task/{{tache.id}}" class="text-inherit ">{{tache.projectname}}</a></h5>
+                      <h5 class=" mb-1"> <a routerLink="/task/single-task/{{tache.task_id}}" class="text-inherit ">{{tache.project.name}}</a></h5>
 
                     </div>
                   </div>
                 </td>
                 <td class="align-middle ">
                 <span class="d-inline-block text-truncate" style="max-width: 250px;">
-                  {{tache.tachename}}
+                  {{tache.name}}
                </span>
 
                 </td>
-                <td class="align-middle">{{tache.consultant}}</td>
-                <td class="align-middle text-dark">
-                  <div class="float-start me-3">{{tache.totalHours}}</div>
+                <td class="align-middle">{{tache.description}}</td>
 
-                </td>
               </tr>
             </ng-container>
 

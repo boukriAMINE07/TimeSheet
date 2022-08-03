@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 })
 export class NewProjectComponent implements OnInit {
   project:Project={
+    project_id:0,
     name:'',
     description:'',
     startDate:new Date(),
@@ -24,6 +25,7 @@ export class NewProjectComponent implements OnInit {
   }
   saveProject():void{
     const data={
+      project_id: this.project.project_id,
       name:this.project.name,
       description:this.project.description,
       startDate:this.project.startDate,

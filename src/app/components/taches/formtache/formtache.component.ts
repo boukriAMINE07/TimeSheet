@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Tache} from "../../../models/tache.model";
 import {Router} from "@angular/router";
 import {TacheService} from "../../../services/tache.service";
+import {Task} from "../../../models/tache.model";
+import {ProjectService} from "../../../services/project.service";
+import {Project} from "../../../models/project.model";
 
 @Component({
   selector: 'app-formtache',
@@ -9,26 +11,41 @@ import {TacheService} from "../../../services/tache.service";
   styleUrls: ['./formtache.component.css']
 })
 export class FormtacheComponent implements OnInit {
-  tache:Tache={
-    projectname:'',
-    tachename:'',
-    consultant:'',
-    totalHours:0
+  tache:Task={
+    task_id:0,
+    name:'',
+    description:'',
+    project:{
+      project_id:0,
+      name:'',
+      description:'',
+      startDate:new Date(),
+      endDate:new Date(),
+      totalHours:0,
+    }
   };
+  project!:Project[]
   submitted=false;
 
-  constructor(private  tacheService:TacheService ,private router:Router) { }
+  constructor(private  tacheService:TacheService,private projectService:ProjectService,private router:Router) { }
 
   ngOnInit(): void {
+
+    this.projectService.getAllProject()
+      .subscribe(project=>{
+        this.project=project
+
+      });
   }
 
 
   saveTache():void{
     const data={
-      projectname:this.tache.projectname,
-      tachename: this.tache.tachename,
-      consultant: this.tache.consultant,
-      totalHours: this.tache.totalHours
+      task_id: this.tache.task_id,
+      name:this.tache.name,
+      description: this.tache.description,
+      project: this.tache.project,
+
     }
     this.tacheService.newTache(data)
       .subscribe(
@@ -40,5 +57,9 @@ export class FormtacheComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+
+  onSelect(project: Project) {
+    this.tache.project=project;
   }
 }

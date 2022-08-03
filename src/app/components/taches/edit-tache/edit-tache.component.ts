@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Tache} from "../../../models/tache.model";
+import { Task} from "../../../models/tache.model";
 import {TacheService} from "../../../services/tache.service";
+import {Project} from "../../../models/project.model";
 
 @Component({
   selector: 'app-edit-tache',
@@ -10,11 +11,20 @@ import {TacheService} from "../../../services/tache.service";
 })
 export class EditTacheComponent implements OnInit {
 
-  currentTache:Tache={
-    projectname:'',
-    tachename:'',
-    consultant:'',
-    totalHours:0
+  project!:Project[]
+  currentTache:Task={
+    task_id:0,
+    name:'',
+    description:'',
+    project:{
+      project_id:0,
+      name:'',
+      description:'',
+      startDate:new Date(),
+      endDate:new Date(),
+      totalHours:0,
+    }
+
   };
   constructor(private  tacheService:TacheService,
               private router:Router,
@@ -28,6 +38,7 @@ export class EditTacheComponent implements OnInit {
     this.tacheService.getTache(id).
     subscribe(data=>{
         this.currentTache=data;
+        this.project.push(data.project)
         console.log(data);
       },error => {
         console.log(error)
@@ -36,19 +47,22 @@ export class EditTacheComponent implements OnInit {
   }
   editTache() {
     const data={
-      projectname:this.currentTache.projectname,
-      tachename:this.currentTache.tachename,
-      consultant:this.currentTache.consultant,
-      totalHours:this.currentTache.totalHours
+      task_id: this.currentTache.task_id,
+      name:this.currentTache.name,
+      description: this.currentTache.description,
+      project: this.currentTache.project,
     }
-    this.tacheService.updateTache(this.currentTache.id,data)
+    this.tacheService.updateTache(this.currentTache.task_id,data)
       .subscribe(response=>{
         console.log(response)
-        this.router.navigate([`/task/single-task/${this.currentTache.id}`])
+        this.router.navigate([`/task/single-task/${this.currentTache.task_id}`])
       },error => {
         console.log(error);
       })
 
   }
 
+  onSelect(project: Project) {
+    this.currentTache.project=project
+  }
 }

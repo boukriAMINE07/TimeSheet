@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Project} from "../models/project.model";
-const baseUrl="http://localhost:3000/projects"
+const baseUrl="http://localhost:8080/projects"
 @Injectable({
   providedIn: 'root'
 })
@@ -21,21 +21,21 @@ export class ProjectService {
   }
 
   getProject(id:any):Observable<Project>{
-    return this.http.get(`${baseUrl}/${id}`)
+    return this.http.get<Project>(`${baseUrl}/${id}`)
   }
 
 
-  newProject(data:any):Observable<any>{
-    return this.http.post(baseUrl,data);
+  newProject(data:Project):Observable<Project>{
+    return this.http.post<Project>(baseUrl,data);
   }
-  updateProject(id:any,data:any):Observable<any>{
-    return this.http.put(`${baseUrl}/${id}`,data);
+  updateProject(id:number,data:Project):Observable<Project>{
+    return this.http.put<Project>(`${baseUrl}/${id}`,data);
   }
-  deleteProject(id:any):Observable<any>{
-    return this.http.delete(`${baseUrl}/${id}`);
+  deleteProject(id:number):Observable<Project>{
+    return this.http.delete<Project>(`${baseUrl}/${id}`);
   }
-  updateHours(id:any,totalHours:any):Observable<any>{
-    return this.http.patch(`${baseUrl}/${id}`, {totalHours:totalHours});
+  updateHours(id:number,totalHours:number):Observable<Project>{
+    return this.http.patch<Project>(`${baseUrl}/${id}`, {totalHours:totalHours});
   }
 
 }

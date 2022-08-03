@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {Tache} from "../models/tache.model";
-const baseUrl="http://localhost:3000/taches"
+import {Task} from "../models/tache.model";
+
+const baseUrl="http://localhost:8080/tasks"
 
 @Injectable({
   providedIn: 'root'
@@ -11,28 +12,32 @@ export class TacheService {
 
   constructor(private http:HttpClient) { }
   getTaches(){
-    return this.http.get<any>(baseUrl).
-    pipe(map((tache:any)=>{
+    return this.http.get<Task>(baseUrl).
+    pipe(map((tache:Task)=>{
       return tache;
     }))
   }
 
-  getAllTache():Observable<Tache[]>{
-    return this.http.get<Tache[]>(baseUrl);
+  getAllTache():Observable<Task[]>{
+    return this.http.get<Task[]>(baseUrl);
+  }
+  getAllTacheByProject(projectName:string):Observable<Task[]>{
+    const params=new HttpParams().set('name',projectName)
+    return this.http.get<Task[]>(`${baseUrl}/search`,{params});
   }
 
-  getTache(id:any):Observable<Tache>{
-    return this.http.get(`${baseUrl}/${id}`)
+  getTache(id:any):Observable<Task>{
+    return this.http.get<Task>(`${baseUrl}/${id}`)
   }
 
-  newTache(data:any):Observable<any> {
-    return this.http.post(baseUrl,data);
+  newTache(data:Task):Observable<Task> {
+    return this.http.post<Task>(baseUrl,data);
   }
 
-  updateTache(id:any,data:any):Observable<any>{
-    return this.http.put(`${baseUrl}/${id}`,data);
+  updateTache(id:number,data:Task):Observable<Task>{
+    return this.http.put<Task>(`${baseUrl}/${id}`,data);
   }
-  deleteTache(id:any):Observable<any>{
-    return this.http.delete(`${baseUrl}/${id}`);
+  deleteTache(id:number):Observable<Task>{
+    return this.http.delete<Task>(`${baseUrl}/${id}`);
   }
 }

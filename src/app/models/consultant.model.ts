@@ -1,8 +1,7 @@
-export class Consultant{
-  id?:number;
-  name?:string;
-  tel?:string;
-  email?:string;
-  password?:string;
-
+export interface Consultant {
+  consultant_id: number
+  name: string
+  email: string
+  phone: number
+  password: string
 }

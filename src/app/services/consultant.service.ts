@@ -3,8 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Project} from "../models/project.model";
 import {Consultant} from "../models/consultant.model";
-const host="http://localhost:3000"
-const baseUrl="http://localhost:3000/consultants"
+
+const baseUrl="http://localhost:8080/consultants"
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +12,7 @@ export class ConsultantService {
 
   constructor(private http:HttpClient) { }
   public saveConsultant(consultant:Consultant):Observable<Consultant>{
-    return this.http.post<Consultant>(host+"/consultants",consultant).pipe(map((res:any)=> {
+    return this.http.post<Consultant>(baseUrl,consultant).pipe(map((res:any)=> {
       return res
     }));
   }
@@ -26,7 +26,7 @@ export class ConsultantService {
     return this.http.get<Consultant[]>(baseUrl);
   }
   getConsultant(id:any):Observable<Consultant>{
-    return this.http.get(`${baseUrl}/${id}`)
+    return this.http.get<Consultant>(`${baseUrl}/${id}`)
   }
   newConsultant(data:any):Observable<any>{
     return this.http.post(baseUrl,data);

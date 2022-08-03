@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Tache} from "../../../models/tache.model";
+
 import {TacheService} from "../../../services/tache.service";
+import {Task} from "../../../models/tache.model";
+import {Project} from "../../../models/project.model";
 
 @Component({
   selector: 'app-single-tache',
@@ -10,11 +12,18 @@ import {TacheService} from "../../../services/tache.service";
 })
 export class SingleTacheComponent implements OnInit {
 
-  currentTache:Tache={
-    projectname:'',
-    tachename:'',
-    consultant:'',
-    totalHours:0
+  currentTache:Task={
+    task_id:0,
+    name:'',
+    description:'',
+    project:{
+      project_id:0,
+      name:'',
+      description:'',
+      startDate:new Date(),
+      endDate:new Date(),
+      totalHours:0,
+    },
   }
   message='';
   constructor( private  tacheService:TacheService,
@@ -38,7 +47,7 @@ export class SingleTacheComponent implements OnInit {
 
 
   deleteTache() {
-    this.tacheService.deleteTache(this.currentTache.id)
+    this.tacheService.deleteTache(this.currentTache.task_id)
       .subscribe(response=>{
           console.log(response)
           this.router.navigate(['/task/home'])

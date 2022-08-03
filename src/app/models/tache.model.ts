@@ -1,7 +1,8 @@
-export class Tache {
-  id?:any;
-  projectname?:string;
-  tachename?:string;
-  consultant?:string;
-  totalHours?:number;
+import {Project} from "./project.model";
+
+export interface Task {
+  task_id: number
+  name: string
+  description: string
+  project: Project
 }
