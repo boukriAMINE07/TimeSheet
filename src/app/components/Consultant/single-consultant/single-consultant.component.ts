@@ -11,10 +11,11 @@ import {ConsultantService} from "../../../services/consultant.service";
 })
 export class SingleConsultantComponent implements OnInit {
   currentConsultant:Consultant={
+    consultant_id:0,
     name:'',
     email:'',
     password:'',
-    tel:'',
+    phone:0,
   }
   message='';
 
@@ -35,7 +36,7 @@ export class SingleConsultantComponent implements OnInit {
     )
   }
   deleteConsultant() {
-    this.service.deleteConsultant(this.currentConsultant.id)
+    this.service.deleteConsultant(this.currentConsultant.consultant_id)
       .subscribe(response=>{
           console.log(response)
           this.router.navigate(['/consultant/listeConsultant'])

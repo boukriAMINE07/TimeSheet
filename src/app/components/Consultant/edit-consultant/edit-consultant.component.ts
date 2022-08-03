@@ -10,10 +10,11 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class EditConsultantComponent implements OnInit {
   currentConsultant:Consultant={
+    consultant_id:0,
     name:'',
     email:'',
     password:'',
-    tel:'',
+    phone:0,
   }
 
   constructor(private service:ConsultantService,private router:Router,private route:ActivatedRoute) { }
@@ -34,16 +35,17 @@ export class EditConsultantComponent implements OnInit {
   }
   editConsultant() {
     const data={
+      consultant_id: this.currentConsultant.consultant_id,
       name:this.currentConsultant.name,
-      tel:this.currentConsultant.tel,
+      tel:this.currentConsultant.phone,
       password:this.currentConsultant.password,
       email:this.currentConsultant.email,
 
     }
-    this.service.updateConsultant(this.currentConsultant.id,data)
+    this.service.updateConsultant(this.currentConsultant.consultant_id,data)
       .subscribe(response=>{
         console.log(response)
-        this.router.navigate([`/consultant/singleConsultant/${this.currentConsultant.id}`])
+        this.router.navigate([`/consultant/singleConsultant/${this.currentConsultant.consultant_id}`])
       },error => {
         console.log(error);
       })

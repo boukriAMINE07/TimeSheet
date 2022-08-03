@@ -11,8 +11,9 @@ import {ConsultantService} from "../../../services/consultant.service";
 })
 export class NewConsultantComponent implements OnInit {
   consultant:Consultant={
+    consultant_id:0,
     name:'',
-    tel:'',
+    phone:0,
     password:'',
     email:''
   };
@@ -25,7 +26,7 @@ export class NewConsultantComponent implements OnInit {
   saveConsultant():void{
     const data={
       name:this.consultant.name,
-      tel:this.consultant.tel,
+      tel:this.consultant.phone,
       password:this.consultant.password,
       email:this.consultant.email
     }

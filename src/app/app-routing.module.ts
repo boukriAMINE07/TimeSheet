@@ -19,6 +19,9 @@ import {ListeConsultantComponent} from "./components/Consultant/liste-consultant
 import {SingleConsultantComponent} from "./components/Consultant/single-consultant/single-consultant.component";
 import {EditConsultantComponent} from "./components/Consultant/edit-consultant/edit-consultant.component";
 import {NewConsultantComponent} from "./components/Consultant/new-consultant/new-consultant.component";
+import {
+  NewTaskOfConsultantComponent
+} from "./components/TaskOfConsultant/new-task-of-consultant/new-task-of-consultant.component";
 
 
 const routes: Routes = [
@@ -42,6 +45,7 @@ const routes: Routes = [
   {path:"consultant/singleConsultant/:id",component:SingleConsultantComponent},
   {path:"consultant/editConsultant/:id",component:EditConsultantComponent},
   {path:"consultant/newConsultant",component:NewConsultantComponent},
+  {path:"consultant/newTaskOfConsultant",component:NewTaskOfConsultantComponent},
   {path:"not-found",component: ErrorComponent},
   {path:"**",redirectTo:'/not-found'}
 

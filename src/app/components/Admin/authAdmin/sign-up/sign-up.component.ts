@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  consultantobj:Consultant=new Consultant();
+  consultantobj!:Consultant;
   NewConsultantFormGroup!:FormGroup;
 
   constructor(private fb:FormBuilder,private service:ConsultantService,private router:Router) { }
@@ -25,7 +25,7 @@ export class SignUpComponent implements OnInit {
   }
   handleSaveConsultant() {
     this.consultantobj.name=this.NewConsultantFormGroup.value.name;
-    this.consultantobj.tel=this.NewConsultantFormGroup.value.tel;
+    this.consultantobj.phone=this.NewConsultantFormGroup.value.tel;
     this.consultantobj.email=this.NewConsultantFormGroup.value.email;
     this.consultantobj.password=this.NewConsultantFormGroup.value.password;
     this.service.saveConsultant(this.consultantobj).subscribe({

@@ -4,7 +4,7 @@
       <!-- Page header -->
 
       <div class="border-bottom pb-4 mb-4">
-        <h3 class="mb-0 fw-bold">Edit Project</h3>
+        <h3 class="mb-0 fw-bold">Edit Task</h3>
 
       </div>
 
@@ -30,36 +30,34 @@
             </div>
             <form>
               <!-- row -->
-              <div class="mb-3 row">
-                <label for="projectname" class="col-sm-4 col-form-label
-                          form-label">Nom du projet </label>
-                <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" [(ngModel)]="currentTache.projectname" name="projectname" placeholder="Nom de projet" id="projectname" required>
+              <div class="row mb-3">
+                <label class="col-sm-4 col-form-label form-label" >Project Name </label>
+                <div class="col-md-8 col-12"  >
+                  <select class="form-select"  aria-label="Default select example">
+                    <option selected disabled  name="project" [(ngModel)]="currentTache.project"  >{{currentTache.project.name}}</option>
+                  </select>
                 </div>
               </div>
 
+              <!-- row -->
               <div class="mb-3 row">
-                <label for="tachename" class="col-sm-4 col-form-label
-                          form-label">Total Hours </label>
+                <label for="tachename"  class="col-sm-4 col-form-label form-label">Nom de tache : </label>
                 <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" [(ngModel)]="currentTache.tachename" name="tachename" placeholder="Nom de tache" id="tachename" required>
+                  <input type="text" class="form-control" [(ngModel)]="currentTache.name" name="name" placeholder="tachename" id="tachename" required>
                 </div>
-              </div>
-              <div class="mb-3 row">
-                <label for="consultant" class="col-sm-4 col-form-label
-                          form-label">Total Hours </label>
-                <div class="col-md-8 col-12">
-                  <input type="text" class="form-control" [(ngModel)]="currentTache.consultant" name="consultant" placeholder="Consultant" id="consultant" required>
-                </div>
+
               </div>
 
+              <!-- row -->
               <div class="mb-3 row">
-                <label for="totalHours" class="col-sm-4 col-form-label
-                          form-label">Total Hours </label>
+                <label for="consultant"  class="col-sm-4 col-form-label form-label">Description : </label>
                 <div class="col-md-8 col-12">
-                  <input type="number" class="form-control" [(ngModel)]="currentTache.totalHours" name="totalHours" placeholder="Total hours in the project" id="totalHours" required>
+                  <textarea type="text" class="form-control" [(ngModel)]="currentTache.description" name="description" placeholder="Description" id="consultant" required></textarea>
                 </div>
+
               </div>
+
+
               <!-- row -->
 
               <!-- row -->

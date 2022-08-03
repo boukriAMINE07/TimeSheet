@@ -13,8 +13,8 @@ export class HometachesComponent implements OnInit {
 
   ngOnInit(): void {
     this.tacheService.getAllTache()
-      .subscribe(project=>{
-        this.listtaches=project
+      .subscribe(task=>{
+        this.listtaches=task
       });
   }
 

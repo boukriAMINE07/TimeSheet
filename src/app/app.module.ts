@@ -28,6 +28,11 @@ import { SingleConsultantComponent } from './components/Consultant/single-consul
 import { EditConsultantComponent } from './components/Consultant/edit-consultant/edit-consultant.component';
 import { NewConsultantComponent } from './components/Consultant/new-consultant/new-consultant.component';
 import { AllProjectTaskConsultantComponent } from './components/all-project-task-consultant/all-project-task-consultant.component';
+import {
+  HomeTaskOfConsultantComponent
+} from "./components/TaskOfConsultant/home-task-of-consultant/home-task-of-consultant.component";
+import { NewTaskOfConsultantComponent } from './components/TaskOfConsultant/new-task-of-consultant/new-task-of-consultant.component';
+
 
 
 
@@ -56,6 +61,8 @@ import { AllProjectTaskConsultantComponent } from './components/all-project-task
     EditConsultantComponent,
     NewConsultantComponent,
     AllProjectTaskConsultantComponent,
+    HomeTaskOfConsultantComponent,
+    NewTaskOfConsultantComponent,
   ],
   imports: [
     BrowserModule,
