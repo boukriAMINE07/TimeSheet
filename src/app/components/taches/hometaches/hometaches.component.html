@@ -25,7 +25,19 @@
       <div class="card">
         <!-- card header  -->
         <div class="card-header bg-white  py-4">
-          <h4 class="mb-0">Active Taches</h4>
+          <div class="row">
+            <div class="col-md-4">  <h4 class="mt-2">Active Tasks</h4></div>
+            <div class="col-md-8">
+              <div class="ms-lg-3  d-md-none d-lg-block">
+                <!-- Form -->
+                <form class="d-flex align-items-center">
+                  <input type="search" class="form-control" [(ngModel)]="name"
+                         (keyup)="searchName($event)" placeholder="Search By Name Of Task" />
+                </form>
+              </div>
+            </div>
+
+          </div>
         </div>
         <!-- table  -->
         <div class="table-responsive">
@@ -39,7 +51,7 @@
             </tr>
             </thead>
             <tbody>
-            <ng-container *ngFor="let tache of listtaches">
+            <ng-container *ngFor="let tache of tasks">
               <tr  >
                 <td class="align-middle">
                   <div class="d-flex
@@ -68,7 +80,29 @@
         </div>
         <!-- card footer  -->
         <div class="card-footer bg-white text-center">
-          <a href="#" class="link-primary">View All Projects</a>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <pagination-controls
+
+                previousLabel="Previous"
+                nextLabel="Next"
+                [responsive]="true"
+                (pageChange)="handlePageChange($event)"
+              >
+                <!-- center alignment -->
+
+                <li class="page-item" *ngFor="
+          let task of tasks | paginate : {
+                  itemsPerPage: pageSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+                 let i = index" >
+                  <a class="page-link" href="#">{{i}}</a></li>
+
+              </pagination-controls>
+            </ul>
+          </nav>
 
         </div>
       </div>

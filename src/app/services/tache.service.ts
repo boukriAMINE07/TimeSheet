@@ -5,6 +5,7 @@ import {Task} from "../models/tache.model";
 
 const baseUrl="http://localhost:8080/tasks"
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,5 +40,9 @@ export class TacheService {
   }
   deleteTache(id:number):Observable<Task>{
     return this.http.delete<Task>(`${baseUrl}/${id}`);
+  }
+
+  getAllTaskWithPagination(params:any):Observable<any>{
+    return this.http.get<any>(baseUrl+'/pageTasks', { params });
   }
 }

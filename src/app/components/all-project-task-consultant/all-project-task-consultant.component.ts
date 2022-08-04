@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProjectService} from "../../services/project.service";
 import {TacheService} from "../../services/tache.service";
 import {ConsultantService} from "../../services/consultant.service";
+import {TaskOfConsultantService} from "../../services/task-of-consultant.service";
 
 @Component({
   selector: 'app-all-project-task-consultant',
@@ -12,14 +13,18 @@ export class AllProjectTaskConsultantComponent implements OnInit {
   listProjects: any=[];
   listTasks:any= [];
   listConsultants:any=[]
+  listTaskOfConsultants:any=[]
 
-  constructor(private projectService:ProjectService,private tacheService:TacheService,private consultantService:ConsultantService) { }
+  constructor(private projectService:ProjectService,
+              private tacheService:TacheService,
+              private consultantService:ConsultantService,
+              private taskOfConsultantService:TaskOfConsultantService) { }
 
   ngOnInit(): void {
     this.getAllProject();
     this.getAllTask();
     this.getAllConsultant();
-
+    this.getAllTaskOfConsultant()
 
   }
   getAllProject(){
@@ -41,5 +46,12 @@ export class AllProjectTaskConsultantComponent implements OnInit {
         this.listConsultants=consultant
       });
   }
+  getAllTaskOfConsultant(){
+    this.taskOfConsultantService.getAllTaskOfConsultant()
+      .subscribe(taskOfConsultant=>{
+        this.listTaskOfConsultants=taskOfConsultant
+      });
+  }
+
 
 }

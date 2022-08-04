@@ -22,6 +22,13 @@ export class HomeComponent implements OnInit {
     endDate:new Date(),
     totalHours:0
   };
+  projects:Project[]=[]
+  currentIndex = -1;
+  name = '';
+  page = 1;
+  count = 0;
+  pageSize = 5;
+  pageSizes = [5, 10, 15];
 
   constructor(private projectService:ProjectService,private formBuilder:FormBuilder) { }
 
@@ -30,7 +37,8 @@ export class HomeComponent implements OnInit {
       totalHours:[''],
 
     })
-    this.allProject()
+    this.retrieveProjects()
+
   }
   allProject(){
     this.projectService.getAllProject()
@@ -39,9 +47,6 @@ export class HomeComponent implements OnInit {
 
       });
   }
-
-
-
 
   ngAfterViewInit() {
 
@@ -101,6 +106,7 @@ export class HomeComponent implements OnInit {
     })(jQuery);
 
   }
+
   CurrentHours(project: Project) {
     this.currentProject.project_id=project.project_id;
     this.formGroup.controls['totalHours'].setValue(project.totalHours)
@@ -120,6 +126,50 @@ export class HomeComponent implements OnInit {
       },error => {
         console.log(error)
       })
+  }
+
+  getRequestParams(searchName: string, page: number, pageSize: number): any {
+    let params: any = {};
+    if (searchName) {
+      params[`name`] = searchName;
+    }
+    if (page) {
+      params[`page`] = page - 1;
+    }
+    if (pageSize) {
+      params[`size`] = pageSize;
+    }
+    return params;
+  }
+
+  retrieveProjects(): void {
+    const params = this.getRequestParams(this.name, this.page, this.pageSize);
+    this.projectService.getAllProjectWithPagination(params)
+      .subscribe(
+        response => {
+          const { projects, totalItems } = response;
+          this.projects = projects;
+          this.count = totalItems;
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
+  }
+
+  handlePageChange(event: number): void {
+    this.page = event;
+    this.retrieveProjects();
+  }
+  handlePageSizeChange(event: any): void {
+    this.pageSize = event.target.value;
+    this.page = 1;
+    this.retrieveProjects();
+  }
+  searchName(event: KeyboardEvent): void {
+    this.name=(event.target as HTMLInputElement).value;
+    this.page = 1;
+    this.retrieveProjects();
   }
 
 }

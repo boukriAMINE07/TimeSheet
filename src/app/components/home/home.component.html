@@ -27,8 +27,23 @@
       <div class="card">
         <!-- card header  -->
         <div class="card-header bg-white  py-4">
-          <h4 class="mb-0">Active Projects</h4>
+          <div class="row">
+            <div class="col-md-4">  <h4 class="mt-2">Active Projects</h4></div>
+            <div class="col-md-7">
+              <div class="ms-lg-3  d-md-none d-lg-block">
+              <!-- Form -->
+              <form class="d-flex align-items-center">
+                <input type="search" class="form-control" [(ngModel)]="name"
+                       (keyup)="searchName($event)" placeholder="Search By Name Of Project" />
+              </form>
+            </div>
+            </div>
+            <div class="col-md-1"></div>
+          </div>
+
+
         </div>
+
         <!-- table  -->
         <div class="table-responsive">
           <table class="table text-nowrap mb-0">
@@ -42,7 +57,7 @@
             </tr>
             </thead>
             <tbody>
-            <ng-container *ngFor="let project of listProjects">
+            <ng-container *ngFor="let project of projects">
             <tr  >
               <td class="align-middle">
                 <div class="d-flex
@@ -117,7 +132,30 @@
         </div>
         <!-- card footer  -->
         <div class="card-footer bg-white text-center">
-          <a href="#" class="link-primary">View All Projects</a>
+          <!-- center alignment -->
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <pagination-controls
+
+              previousLabel="Previous"
+              nextLabel="Next"
+              [responsive]="true"
+              (pageChange)="handlePageChange($event)"
+              >
+                <!-- center alignment -->
+
+                    <li class="page-item" *ngFor="
+          let project of projects | paginate : {
+                  itemsPerPage: pageSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+                 let i = index" >
+                      <a class="page-link" href="#">{{i}}</a></li>
+
+              </pagination-controls>
+            </ul>
+          </nav>
 
         </div>
       </div>
