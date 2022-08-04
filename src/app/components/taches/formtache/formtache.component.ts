@@ -45,7 +45,6 @@ export class FormtacheComponent implements OnInit {
       name:this.tache.name,
       description: this.tache.description,
       project: this.tache.project,
-
     }
     this.tacheService.newTache(data)
       .subscribe(

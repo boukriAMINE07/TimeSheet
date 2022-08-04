@@ -41,4 +41,7 @@ export class TaskOfConsultantService {
     const params=new HttpParams().set('task',name)
     return this.http.get<TaskOfConsultant[]>(`${baseUrl}/searchTask`,{params});
   }
+  getAllTaskWithPagination(params:any):Observable<any>{
+    return this.http.get<any>(baseUrl+'/pageTaskOfConsultants', { params });
+  }
 }

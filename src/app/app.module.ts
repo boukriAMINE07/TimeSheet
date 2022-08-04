@@ -32,6 +32,7 @@ import {
   HomeTaskOfConsultantComponent
 } from "./components/TaskOfConsultant/home-task-of-consultant/home-task-of-consultant.component";
 import { NewTaskOfConsultantComponent } from './components/TaskOfConsultant/new-task-of-consultant/new-task-of-consultant.component';
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 
@@ -70,7 +71,8 @@ import { NewTaskOfConsultantComponent } from './components/TaskOfConsultant/new-
     HttpClientModule,
     FormsModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

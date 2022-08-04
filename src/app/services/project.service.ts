@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Project} from "../models/project.model";
 const baseUrl="http://localhost:8080/projects"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,5 +38,10 @@ export class ProjectService {
   updateHours(id:number,totalHours:number):Observable<Project>{
     return this.http.patch<Project>(`${baseUrl}/${id}`, {totalHours:totalHours});
   }
+
+  getAllProjectWithPagination(params:any):Observable<any>{
+    return this.http.get<any>(baseUrl+'/pageProjects', { params });
+  }
+
 
 }

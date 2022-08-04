@@ -106,9 +106,11 @@ export class NewTaskOfConsultantComponent implements OnInit {
   }
 
   onSelectProject(project: Project) {
+    console.log(project)
         this.taskOfConsultant.task.project=project
         this.getAllTask(project.name)
         this.Choisseproject=false
+
 
   }
 }
