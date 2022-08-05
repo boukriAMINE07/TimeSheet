@@ -43,6 +43,9 @@ export class NewTaskOfConsultantComponent implements OnInit {
   task!:Task[]
   consultant!:Consultant[]
   project!:Project[]
+  selectedtask!:Task
+  selectedconsultant!:Consultant
+  selectedproject!:Project
   Choisseproject: boolean=true;
   constructor(private  tacheService:TacheService,
               private consultantService:ConsultantService,
@@ -78,11 +81,13 @@ export class NewTaskOfConsultantComponent implements OnInit {
   }
 
   onSelectTask(task: Task) {
-        this.taskOfConsultant.task=task
+    console.log(task)
+    this.taskOfConsultant.task=task
   }
 
   onSelectConsultant(consultant: Consultant) {
-        this.taskOfConsultant.consultant=consultant
+    console.log(consultant)
+    this.taskOfConsultant.consultant=consultant
   }
 
   saveTaskOfConsultant() {
@@ -92,6 +97,7 @@ export class NewTaskOfConsultantComponent implements OnInit {
       task:this.taskOfConsultant.task,
       consultant: this.taskOfConsultant.consultant,
       duration: this.taskOfConsultant.duration,
+      project:this.taskOfConsultant.task.project
 
     }
     this.taskOfConsultantService.newTaskOfConsultant(data)
@@ -106,10 +112,11 @@ export class NewTaskOfConsultantComponent implements OnInit {
   }
 
   onSelectProject(project: Project) {
+
     console.log(project)
-        this.taskOfConsultant.task.project=project
-        this.getAllTask(project.name)
-        this.Choisseproject=false
+    this.taskOfConsultant.task.project=project
+    this.getAllTask(project.name)
+    this.Choisseproject=false
 
 
   }

@@ -31,9 +31,9 @@
               <div class="row mb-3">
                 <label class="col-sm-4 col-form-label form-label" >Project Name </label>
                 <div class="col-md-8 col-12"  >
-                  <select class="form-select"  aria-label="Default select example">
+                  <select class="form-select"  aria-label="Default select example" (ngModelChange)="onSelectProject($event)" name="project"  [ngModel]="selectedproject">
                     <option selected disabled >Open this selection menu to choose your Project</option>
-                    <option *ngFor="let project of project" value="{{project.project_id}}" name="project"  (click)="onSelectProject(project)" >{{project.name}}</option>
+                    <option *ngFor="let project of project" value="{{project.project_id}}" name="project" [ngValue]="project" [(ngModel)]="taskOfConsultant.task.project"  >{{project.name}}</option>
 
                   </select>
                 </div>
@@ -42,9 +42,9 @@
               <div class="row mb-3">
                 <label class="col-sm-4 col-form-label form-label" >Task Name </label>
                 <div class="col-md-8 col-12"  >
-                  <select class="form-select" [disabled]="Choisseproject" aria-label="Default select example">
+                  <select class="form-select" [disabled]="Choisseproject" aria-label="Default select example" name="task"  (ngModelChange)="onSelectTask($event)" [ngModel]="selectedtask">
                     <option selected disabled >Open this selection menu to choose your Task</option>
-                    <option *ngFor="let task of task" value="{{task.task_id}}" name="task" [(ngModel)]="taskOfConsultant.task" (click)="onSelectTask(task)" >{{task.name}}</option>
+                    <option *ngFor="let task of task" value="{{task.task_id}}" name="task" [(ngModel)]="taskOfConsultant.task" [ngValue]="task" >{{task.name}}</option>
 
                   </select>
                 </div>
@@ -52,9 +52,9 @@
               <div class="row mb-3">
                 <label class="col-sm-4 col-form-label form-label" >Consultant Name </label>
                 <div class="col-md-8 col-12"  >
-                  <select class="form-select"  aria-label="Default select example">
+                  <select class="form-select"  aria-label="Default select example" name="consultant" (ngModelChange)="onSelectConsultant($event)" [ngModel]="selectedconsultant">
                     <option selected disabled >Open this selection menu to choose your Consultant</option>
-                    <option *ngFor="let consultant of consultant" value="{{consultant.consultant_id}}" name="consultant" [(ngModel)]="taskOfConsultant.consultant" (click)="onSelectConsultant(consultant)" >{{consultant.name}}</option>
+                    <option *ngFor="let consultant of consultant" value="{{consultant.consultant_id}}" name="consultant" [ngValue]="consultant" [(ngModel)]="taskOfConsultant.consultant"  >{{consultant.name}}</option>
 
                   </select>
                 </div>

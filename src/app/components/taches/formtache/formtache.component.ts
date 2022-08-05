@@ -26,6 +26,8 @@ export class FormtacheComponent implements OnInit {
   };
   project!:Project[]
   submitted=false;
+  selectedproject!: Project;
+
 
   constructor(private  tacheService:TacheService,private projectService:ProjectService,private router:Router) { }
 
@@ -59,6 +61,7 @@ export class FormtacheComponent implements OnInit {
   }
 
   onSelect(project: Project) {
+    console.log(project)
     this.tache.project=project;
   }
 }

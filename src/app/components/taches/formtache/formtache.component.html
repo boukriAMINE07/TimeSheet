@@ -32,11 +32,11 @@
               <div class="row mb-3">
                 <label class="col-sm-4 col-form-label form-label" >Project Name </label>
                 <div class="col-md-8 col-12"  >
-                <select class="form-select"  aria-label="Default select example">
-                  <option selected disabled >Open this selection menu to choose your project</option>
-                  <option *ngFor="let project of project" value="{{project.project_id}}" name="project" [(ngModel)]="tache.project" (click)="onSelect(project)" >{{project.name}}</option>
+                  <select class="form-select"  aria-label="Default select example" id="project" name="project" (ngModelChange)="onSelect($event)" [ngModel]="selectedproject">
+                    <option selected disabled    >Open this selection menu to choose your project</option>
+                    <option *ngFor="let project of project" value="{{project.project_id}}" name="project" [(ngModel)]="tache.project" [ngValue]="project"  >{{project.name}}</option>
 
-                </select>
+                  </select>
                 </div>
               </div>
 
