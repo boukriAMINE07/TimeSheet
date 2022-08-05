@@ -37,6 +37,9 @@ export class ConsultantService {
   deleteConsultant(id:any):Observable<any>{
     return this.http.delete(`${baseUrl}/${id}`);
   }
+  getAllConsultantWithPagination(params:any):Observable<any>{
+    return this.http.get<any>(baseUrl+'/pageConsultants', { params });
+  }
 
 
 }
