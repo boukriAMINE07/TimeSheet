@@ -63,6 +63,9 @@ export class NewTaskOfConsultantComponent implements OnInit {
     this.projectService.getAllProject()
       .subscribe(project=>{
         this.project=project
+        this.selectedproject=this.project[0]
+        this.taskOfConsultant.task.project=this.selectedproject
+
       });
   }
 
@@ -71,12 +74,17 @@ export class NewTaskOfConsultantComponent implements OnInit {
     this.tacheService.getAllTacheByProject(name)
       .subscribe(task=>{
         this.task=task
+        this.selectedtask=this.task[0]
+        this.taskOfConsultant.task=this.selectedtask
+
       });
   }
   getAllConsultant(){
     this.consultantService.getAllConsultants()
       .subscribe(consultant=>{
         this.consultant=consultant
+        this.selectedconsultant=this.consultant[0]
+        this.taskOfConsultant.consultant=this.selectedconsultant
       });
   }
 
@@ -97,14 +105,14 @@ export class NewTaskOfConsultantComponent implements OnInit {
       task:this.taskOfConsultant.task,
       consultant: this.taskOfConsultant.consultant,
       duration: this.taskOfConsultant.duration,
-      project:this.taskOfConsultant.task.project
+
 
     }
     this.taskOfConsultantService.newTaskOfConsultant(data)
       .subscribe(
         response=>{
           console.log(response);
-          this.router.navigate(["/task/home"])
+          this.router.navigate(["/consultant/TaskOfConsultant"])
         },error=>{
           console.log(error);
         }

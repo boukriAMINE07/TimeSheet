@@ -25,6 +25,9 @@ import {
 import {
   HomeTaskOfConsultantComponent
 } from "./components/TaskOfConsultant/home-task-of-consultant/home-task-of-consultant.component";
+import {
+  SingleTaskOfConsultantComponent
+} from "./components/TaskOfConsultant/single-task-of-consultant/single-task-of-consultant.component";
 
 
 const routes: Routes = [
@@ -50,6 +53,7 @@ const routes: Routes = [
   {path:"consultant/newConsultant",component:NewConsultantComponent},
   {path:"consultant/newTaskOfConsultant",component:NewTaskOfConsultantComponent},
   {path:"consultant/TaskOfConsultant",component:HomeTaskOfConsultantComponent},
+  {path:"consultant/single-taskOfConsultant/:id",component:SingleTaskOfConsultantComponent},
   {path:"not-found",component: ErrorComponent},
   {path:"**",redirectTo:'/not-found'}
 

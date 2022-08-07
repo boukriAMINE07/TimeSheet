@@ -33,6 +33,7 @@ import {
 } from "./components/TaskOfConsultant/home-task-of-consultant/home-task-of-consultant.component";
 import { NewTaskOfConsultantComponent } from './components/TaskOfConsultant/new-task-of-consultant/new-task-of-consultant.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { SingleTaskOfConsultantComponent } from './components/TaskOfConsultant/single-task-of-consultant/single-task-of-consultant.component';
 
 
 
@@ -64,6 +65,7 @@ import {NgxPaginationModule} from "ngx-pagination";
     AllProjectTaskConsultantComponent,
     HomeTaskOfConsultantComponent,
     NewTaskOfConsultantComponent,
+    SingleTaskOfConsultantComponent,
   ],
   imports: [
     BrowserModule,
