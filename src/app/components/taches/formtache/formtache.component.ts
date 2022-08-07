@@ -36,8 +36,10 @@ export class FormtacheComponent implements OnInit {
     this.projectService.getAllProject()
       .subscribe(project=>{
         this.project=project
-
+        this.selectedproject=this.project[0]
+        this.tache.project=this.selectedproject
       });
+
   }
 
 

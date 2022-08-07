@@ -33,7 +33,7 @@
                 <div class="col-md-8 col-12"  >
                   <select class="form-select"  aria-label="Default select example" (ngModelChange)="onSelectProject($event)" name="project"  [ngModel]="selectedproject">
                     <option selected disabled >Open this selection menu to choose your Project</option>
-                    <option *ngFor="let project of project" value="{{project.project_id}}" name="project" [ngValue]="project" [(ngModel)]="taskOfConsultant.task.project"  >{{project.name}}</option>
+                    <option *ngFor="let project of project" value="{{project.project_id}}"  [ngValue]="project"   >{{project.name}}</option>
 
                   </select>
                 </div>
@@ -54,31 +54,20 @@
                 <div class="col-md-8 col-12"  >
                   <select class="form-select"  aria-label="Default select example" name="consultant" (ngModelChange)="onSelectConsultant($event)" [ngModel]="selectedconsultant">
                     <option selected disabled >Open this selection menu to choose your Consultant</option>
-                    <option *ngFor="let consultant of consultant" value="{{consultant.consultant_id}}" name="consultant" [ngValue]="consultant" [(ngModel)]="taskOfConsultant.consultant"  >{{consultant.name}}</option>
+                    <option *ngFor="let consultant of consultant" value="{{consultant.consultant_id}}"  [ngValue]="consultant"   >{{consultant.name}}</option>
 
                   </select>
                 </div>
               </div>
-
               <!-- row -->
               <div class="mb-3 row">
                 <label for="duration"  class="col-sm-4 col-form-label form-label">Duration : </label>
                 <div class="col-md-8 col-12">
                   <input type="number" class="form-control" [(ngModel)]="taskOfConsultant.duration" name="duration" placeholder="Duration" min="0" id="duration" required>
                 </div>
-
               </div>
-
-
-
-
-
-
-
-
               <!-- row -->
               <div class="row align-items-center">
-
                 <div class="offset-md-4 col-md-8 mt-4">
                   <button type="submit" (click)="saveTaskOfConsultant()" class="btn btn-primary"> Save
                   </button>
