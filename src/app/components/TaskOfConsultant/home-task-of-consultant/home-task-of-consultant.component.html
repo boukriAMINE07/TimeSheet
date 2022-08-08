@@ -75,7 +75,50 @@
                 <td class="align-middle">{{taskOfConsultant.consultant.name}}</td>
                 <td class="align-middle">status</td>
                 <td class="align-middle ">
-                {{taskOfConsultant.duration}}
+
+                  <form [formGroup]="formGroup"  method="post">
+                    <div class="row">
+                      <div class="col-md-2 mt-2">   {{taskOfConsultant.duration}}</div>
+
+                      <div class="col-md-auto">
+                        <button type="button" (click)="CurrentHours(taskOfConsultant)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+                          Edit Hours
+                        </button>
+                        <!-- Modal -->
+                      </div>
+                      <!-- Button trigger modal -->
+                      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalScrollableTitle">Total Hours</h5>
+                              <button type="button" id="Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="mb-3">
+                                <label for="hours" class="form-label">Total Hours</label>
+                                <input class="form-control" type="number" name="duration" formControlName="duration"  id="hours" min="1" >
+                              </div>
+                            </div>
+
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button"  (click)="UpdateHours()" class="btn btn-primary">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!-- Button trigger modal -->
+
+                    <!-- Modal -->
+
+
+
+                  </form>
 
                 </td>
               </tr>
