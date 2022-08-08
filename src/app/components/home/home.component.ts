@@ -122,7 +122,7 @@ export class HomeComponent implements OnInit {
         let ref=document.getElementById('Close')
         ref?.click();
         this.formGroup.reset()
-        this.allProject()
+        this.retrieveProjects()
       },error => {
         console.log(error)
       })

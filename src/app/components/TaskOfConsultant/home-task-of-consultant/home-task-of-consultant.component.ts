@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {TaskOfConsultantService} from "../../../services/task-of-consultant.service";
 import {TaskOfConsultant} from "../../../models/TaskOfConsultant.models";
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Project} from "../../../models/project.model";
 
 @Component({
   selector: 'app-home-task-of-consultant',
@@ -9,19 +11,53 @@ import {TaskOfConsultant} from "../../../models/TaskOfConsultant.models";
 })
 export class HomeTaskOfConsultantComponent implements OnInit {
 
+  formGroup!:FormGroup
   listTaskOfConsultants:any=[]
   taskOfConsultants:TaskOfConsultant[]=[]
+  currentTaskOfConsultant:TaskOfConsultant={
+    id:0,
+    task:{
+      task_id:0,
+      name:'',
+      description:'',
+      project:{
+        project_id:0,
+        name:'',
+        description:'',
+        startDate:new Date(),
+        endDate:new Date(),
+        totalHours:0,
+      }
+    },
+    consultant:{
+      consultant_id:0,
+      name:'',
+      email:'',
+      password:'',
+      phone:0,
+    },
+    duration:0
+  }
   currentIndex = -1;
   name = '';
   page = 1;
   count = 0;
   pageSize = 6;
   pageSizes = [6, 12, 18];
-  constructor(private taskOfConsultantService:TaskOfConsultantService) { }
+  constructor(private taskOfConsultantService:TaskOfConsultantService,private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
     this.getAllTaskOfConsultant()
     this.retrieveTaskOfConsultant()
+    this.formGroup=this.formBuilder.group({
+      duration:[''],
+
+    })
+  }
+  CurrentHours(taskOfConsultant:TaskOfConsultant) {
+    this.currentTaskOfConsultant.id=taskOfConsultant.id;
+    this.formGroup.controls['duration'].setValue(taskOfConsultant.duration)
+
   }
   getAllTaskOfConsultant(){
     this.taskOfConsultantService.getAllTaskOfConsultant()
@@ -67,5 +103,19 @@ export class HomeTaskOfConsultantComponent implements OnInit {
   }
 
 
+  UpdateHours() {
+    this.currentTaskOfConsultant.duration=this.formGroup.value.duration;
 
+    console.log( this.currentTaskOfConsultant.duration)
+    this.taskOfConsultantService.updateHours(this.currentTaskOfConsultant.id,this.currentTaskOfConsultant.duration)
+      .subscribe(resp=>{
+        let ref=document.getElementById('Close')
+        ref?.click();
+        this.formGroup.reset()
+        this.retrieveTaskOfConsultant()
+      },error => {
+        console.log(error)
+      })
+
+  }
 }

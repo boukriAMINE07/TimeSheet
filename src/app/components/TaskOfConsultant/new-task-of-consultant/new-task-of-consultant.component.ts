@@ -74,8 +74,11 @@ export class NewTaskOfConsultantComponent implements OnInit {
     this.tacheService.getAllTacheByProject(name)
       .subscribe(task=>{
         this.task=task
+       if (this.task.length===0){
+         this.Choisseproject=true
+       }else {
         this.selectedtask=this.task[0]
-        this.taskOfConsultant.task=this.selectedtask
+        this.taskOfConsultant.task=this.selectedtask}
 
       });
   }
