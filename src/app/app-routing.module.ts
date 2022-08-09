@@ -8,7 +8,6 @@ import {SingleTacheComponent} from "./components/taches/single-tache/single-tach
 import {EditTacheComponent} from "./components/taches/edit-tache/edit-tache.component";
 import {ProfilconsultantComponent} from "./components/profilconsultant/profilconsultant.component";
 import {SignInComponent} from "./components/Consultant/sign-in/sign-in.component";
-import {SignUpComponent} from "./components/Admin/authAdmin/sign-up/sign-up.component";
 import {ForgetPasswordComponent} from "./components/Consultant/forget-password/forget-password.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {SingleProjectComponent} from "./components/projects/single-project/single-project.component";
@@ -28,6 +27,7 @@ import {
 import {
   SingleTaskOfConsultantComponent
 } from "./components/TaskOfConsultant/single-task-of-consultant/single-task-of-consultant.component";
+import {RegisterComponent} from "./components/Admin/authAdmin/register/register.component";
 
 
 const routes: Routes = [
@@ -37,12 +37,12 @@ const routes: Routes = [
   {path:"project/editProject/:id",component:EditProjectComponent},
   {path:"project/single-project/:id",component:SingleProjectComponent},
   {path:"consultant/signIn",component:SignInComponent},
-  {path:"admin/createConsultant",component:SignUpComponent},
+  {path:"admin/createConsultant",component:RegisterComponent},
   {path:"consultant/forgetPassword",component:ForgetPasswordComponent},
   {path:"admin/signIn",component:SignInAdminComponent},
   {path:"admin/forgetPassword",component:ForgetPasswordAdminComponent},
   {path:"error",component:ErrorComponent},
-  {path:"consultant/profil",component:ProfilconsultantComponent},
+  {path:"consultant/profile",component:ProfilconsultantComponent},
   {path:"task/newTask",component:FormtacheComponent},
   {path:"task/home",component:HometachesComponent},
   {path:"task/single-task/:id",component:SingleTacheComponent},

@@ -3,6 +3,7 @@ import {ProjectService} from "../../services/project.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import * as ApexCharts from 'apexcharts';
 import {Project} from "../../models/project.model";
+import {UserService} from "../../services/user.service";
 
 declare var jQuery: any;
 @Component({
@@ -11,6 +12,7 @@ declare var jQuery: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  content?: string;
   listProjects:any=[]
   totalHours: any;
   formGroup!:FormGroup
@@ -30,7 +32,7 @@ export class HomeComponent implements OnInit {
   pageSize = 5;
   pageSizes = [5, 10, 15];
 
-  constructor(private projectService:ProjectService,private formBuilder:FormBuilder) { }
+  constructor(private projectService:ProjectService,private formBuilder:FormBuilder,private userService: UserService) { }
 
   ngOnInit(): void {
     this.formGroup=this.formBuilder.group({
@@ -39,6 +41,23 @@ export class HomeComponent implements OnInit {
     })
     this.retrieveProjects()
 
+    this.userService.getPublicContent().subscribe({
+      next: data => {
+        this.content = data;
+      },
+      error: err => {
+        if (err.error) {
+          try {
+            const res = JSON.parse(err.error);
+            this.content = res.message;
+          } catch {
+            this.content = `Error with status: ${err.status} - ${err.statusText}`;
+          }
+        } else {
+          this.content = `Error with status: ${err.status}`;
+        }
+      }
+    });
   }
   allProject(){
     this.projectService.getAllProject()

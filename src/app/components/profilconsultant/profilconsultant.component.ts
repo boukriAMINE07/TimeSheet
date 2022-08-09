@@ -4,6 +4,7 @@ import {TaskOfConsultant} from "../../models/TaskOfConsultant.models";
 import {ActivatedRoute} from "@angular/router";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {Project} from "../../models/project.model";
+import {StorageService} from "../../services/storage.service";
 
 @Component({
   selector: 'app-profilconsultant',
@@ -11,7 +12,7 @@ import {Project} from "../../models/project.model";
   styleUrls: ['./profilconsultant.component.css']
 })
 export class ProfilconsultantComponent implements OnInit {
-
+  currentUser: any;
   tasksOfConsultantsByName:any=[]
   NameOfConsultant!:string
   formGroup!:FormGroup
@@ -41,7 +42,7 @@ export class ProfilconsultantComponent implements OnInit {
   }
 
 
-  constructor(private taskOfConsultantService:TaskOfConsultantService,private route:ActivatedRoute,private formBuilder:FormBuilder) {
+  constructor(private taskOfConsultantService:TaskOfConsultantService,private route:ActivatedRoute,private formBuilder:FormBuilder,private storageService: StorageService) {
     this.route.queryParams.subscribe(params => {
 
       this.NameOfConsultant = params['consultant'];
@@ -57,6 +58,8 @@ export class ProfilconsultantComponent implements OnInit {
       duration:[''],
 
     })
+
+    this.currentUser = this.storageService.getUser();
   }
 
   getTaskOfConsultant( name:string){

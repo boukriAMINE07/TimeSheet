@@ -34,6 +34,9 @@ import {
 import { NewTaskOfConsultantComponent } from './components/TaskOfConsultant/new-task-of-consultant/new-task-of-consultant.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { SingleTaskOfConsultantComponent } from './components/TaskOfConsultant/single-task-of-consultant/single-task-of-consultant.component';
+import {httpInterceptorProviders} from "./helpers/http.interceptor";
+import { RegisterComponent } from './components/Admin/authAdmin/register/register.component';
+
 
 
 
@@ -66,6 +69,8 @@ import { SingleTaskOfConsultantComponent } from './components/TaskOfConsultant/s
     HomeTaskOfConsultantComponent,
     NewTaskOfConsultantComponent,
     SingleTaskOfConsultantComponent,
+    RegisterComponent
+
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,7 @@ import { SingleTaskOfConsultantComponent } from './components/TaskOfConsultant/s
     ReactiveFormsModule,
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

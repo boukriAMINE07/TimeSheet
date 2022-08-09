@@ -1,4 +1,4 @@
-<div class="container-fluid p-6">
+<div class="container-fluid p-6" *ngIf="currentUser; else loggedOut">
   <div class="row">
     <div class="col-lg-12 col-md-12 col-12">
       <!-- Page header -->
@@ -25,7 +25,7 @@
             </div>
             <!-- text Nom du Consultant -->
             <div class="lh-1">
-              <h2 class="mb-0" >&nbsp;{{NameOfConsultant}}</h2>
+              <h2 class="mb-0" >&nbsp;{{currentUser.username}}</h2>
             </div>
           </div>
         </div>
@@ -501,3 +501,6 @@
     </div>
   </div>
 </div>
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

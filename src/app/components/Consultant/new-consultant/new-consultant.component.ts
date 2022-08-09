@@ -4,12 +4,14 @@ import {Router} from "@angular/router";
 import {Consultant} from "../../../models/consultant.model";
 import {ConsultantService} from "../../../services/consultant.service";
 
+
 @Component({
   selector: 'app-new-consultant',
   templateUrl: './new-consultant.component.html',
   styleUrls: ['./new-consultant.component.css']
 })
 export class NewConsultantComponent implements OnInit {
+
   consultant:Consultant={
     consultant_id:0,
     name:'',
@@ -17,7 +19,9 @@ export class NewConsultantComponent implements OnInit {
     password:'',
     email:''
   };
+
   submitted=false;
+
 
   constructor( private  consultantService:ConsultantService ,private router:Router) { }
 
@@ -26,7 +30,7 @@ export class NewConsultantComponent implements OnInit {
   saveConsultant():void{
     const data={
       name:this.consultant.name,
-      tel:this.consultant.phone,
+      phone:this.consultant.phone,
       password:this.consultant.password,
       email:this.consultant.email
     }
@@ -41,5 +45,6 @@ export class NewConsultantComponent implements OnInit {
         }
       );
   }
+
 
 }
