@@ -1,0 +1,71 @@
+<div class="container d-flex flex-column mt-3">
+  <div class="row align-items-center justify-content-center g-0
+        min-vh-100">
+    <div class="col-12 col-md-8 col-lg-6 col-xxl-6 py-8 py-xl-0">
+      <!-- Card -->
+      <div class="card smooth-shadow-md">
+        <!-- Card body -->
+        <div class="card-body p-6">
+          <div class="mb-4">
+            <a routerLink="/home"><strong><h2 style="color: #624BFF">Expertise Data</h2></strong></a>
+            <p class="mb-6">Please enter your user information.</p>
+
+
+                  <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                          <!-- Username -->
+                          <div class="form-group">
+                            <div class="mb-3">
+                                <label for="username">Username</label>
+                                <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" id="username"/>
+                            </div>
+                              <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+                              <div *ngIf="username.errors['required']">Username is required</div>
+                              <div *ngIf="username.errors['minlength']">
+                                Username must be at least 3 characters
+                              </div>
+                              <div *ngIf="username.errors['maxlength']">
+                                Username must be at most 20 characters
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Email -->
+                          <div class="form-group">
+                            <div class="mb-3">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }" id="email"/>
+                            </div>
+                              <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+                              <div *ngIf="email.errors['required']">Email is required</div>
+                              <div *ngIf="email.errors['email']">
+                                Email must be a valid email address
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Password -->
+                          <div class="form-group">
+                            <div class="mb-3">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" id="password"/>
+                            </div>
+                              <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+                              <div *ngIf="password.errors['required']">Password is required</div>
+                              <div *ngIf="password.errors['minlength']">
+                                Password must be at least 6 characters
+                              </div>
+                            </div>
+                          </div>
+                          <!-- Button -->
+                          <div class="d-grid">
+                            <button class="btn btn-primary btn-block">Sign Up</button>
+                          </div>
+
+                         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">Signup failed!<br />{{ errorMessage }}</div>
+                  </form>
+
+                  <div class="alert alert-success" *ngIf="isSuccessful">Your registration is successful!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

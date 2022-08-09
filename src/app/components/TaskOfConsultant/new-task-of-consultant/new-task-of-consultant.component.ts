@@ -8,6 +8,7 @@ import {ProjectService} from "../../../services/project.service";
 import {Project} from "../../../models/project.model";
 import {TaskOfConsultantService} from "../../../services/task-of-consultant.service";
 import {Router} from "@angular/router";
+import {StorageService} from "../../../services/storage.service";
 
 @Component({
   selector: 'app-new-task-of-consultant',
@@ -15,7 +16,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./new-task-of-consultant.component.css']
 })
 export class NewTaskOfConsultantComponent implements OnInit {
-
+  currentUser: any;
   taskOfConsultant:TaskOfConsultant={
     id:0,
     task:{
@@ -51,11 +52,12 @@ export class NewTaskOfConsultantComponent implements OnInit {
               private consultantService:ConsultantService,
               private projectService:ProjectService,
               private taskOfConsultantService:TaskOfConsultantService,
-              private router:Router) { }
+              private router:Router,private storageService: StorageService) { }
 
   ngOnInit(): void {
     this.getAllProject()
     this.getAllConsultant()
+    this.currentUser = this.storageService.getUser();
 
   }
 
