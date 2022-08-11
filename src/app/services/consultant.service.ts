@@ -3,8 +3,10 @@ import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {Project} from "../models/project.model";
 import {Consultant} from "../models/consultant.model";
+import {User} from "../models/User.model";
 
 const baseUrl="http://localhost:8080/consultants"
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +27,7 @@ export class ConsultantService {
   getAllConsultants():Observable<Consultant[]>{
     return this.http.get<Consultant[]>(baseUrl);
   }
+
   getConsultant(id:any):Observable<Consultant>{
     return this.http.get<Consultant>(`${baseUrl}/${id}`)
   }

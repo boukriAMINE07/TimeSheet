@@ -29,13 +29,17 @@ export class HomeTaskOfConsultantComponent implements OnInit {
         totalHours:0,
       }
     },
-    consultant:{
-      consultant_id:0,
-      name:'',
+    user:{
+      id:0,
       email:'',
       password:'',
-      phone:0,
+      username:'',
+      roles:[{
+        id:0,
+        name:''
+      }]
     },
+    state:'',
     duration:0
   }
   currentIndex = -1;
@@ -84,13 +88,18 @@ export class HomeTaskOfConsultantComponent implements OnInit {
       .subscribe(
         response => {
           const { taskOfConsultants, totalItems } = response;
-          this.taskOfConsultants = taskOfConsultants;
-          this.count = totalItems;
-          console.log(response);
+
+            this.taskOfConsultants = taskOfConsultants;
+
+            this.count = totalItems;
+            console.log(this.taskOfConsultants);
+
+
         },
         error => {
           console.log(error);
         });
+
   }
   handlePageChange(event: number): void {
     this.page = event;
