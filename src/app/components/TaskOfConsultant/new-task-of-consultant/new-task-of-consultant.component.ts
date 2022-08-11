@@ -9,6 +9,8 @@ import {Project} from "../../../models/project.model";
 import {TaskOfConsultantService} from "../../../services/task-of-consultant.service";
 import {Router} from "@angular/router";
 import {StorageService} from "../../../services/storage.service";
+import {User} from "../../../models/User.model";
+import {UserService} from "../../../services/user.service";
 
 @Component({
   selector: 'app-new-task-of-consultant',
@@ -32,24 +34,28 @@ export class NewTaskOfConsultantComponent implements OnInit {
         totalHours:0,
       }
     },
-    consultant:{
-      consultant_id:0,
-      name:'',
+    state:'TODO',
+    user:{
+      id:0,
       email:'',
       password:'',
-      phone:0,
+      username:'',
+      roles:[{
+        id:0,
+        name:''
+      }]
     },
     duration:0
   }
   task!:Task[]
-  consultant!:Consultant[]
+  user!:User[]
   project!:Project[]
   selectedtask!:Task
-  selectedconsultant!:Consultant
+  selectedUser!:User
   selectedproject!:Project
   Choisseproject: boolean=true;
   constructor(private  tacheService:TacheService,
-              private consultantService:ConsultantService,
+              private userService:UserService,
               private projectService:ProjectService,
               private taskOfConsultantService:TaskOfConsultantService,
               private router:Router,private storageService: StorageService) { }
@@ -57,7 +63,7 @@ export class NewTaskOfConsultantComponent implements OnInit {
   ngOnInit(): void {
     this.getAllProject()
     this.getAllConsultant()
-    this.currentUser = this.storageService.getUser();
+    //this.currentUser = this.storageService.getUser();
 
   }
 
@@ -85,11 +91,11 @@ export class NewTaskOfConsultantComponent implements OnInit {
       });
   }
   getAllConsultant(){
-    this.consultantService.getAllConsultants()
-      .subscribe(consultant=>{
-        this.consultant=consultant
-        this.selectedconsultant=this.consultant[0]
-        this.taskOfConsultant.consultant=this.selectedconsultant
+    this.userService.getAllUsers()
+      .subscribe(user=>{
+        this.user=user
+        this.selectedUser=this.user[0]
+        this.taskOfConsultant.user=this.selectedUser
       });
   }
 
@@ -98,9 +104,9 @@ export class NewTaskOfConsultantComponent implements OnInit {
     this.taskOfConsultant.task=task
   }
 
-  onSelectConsultant(consultant: Consultant) {
-    console.log(consultant)
-    this.taskOfConsultant.consultant=consultant
+  onSelectConsultant(user: User) {
+    console.log(user)
+    this.taskOfConsultant.user=user
   }
 
   saveTaskOfConsultant() {
@@ -108,7 +114,8 @@ export class NewTaskOfConsultantComponent implements OnInit {
     const data={
       id: this.taskOfConsultant.id,
       task:this.taskOfConsultant.task,
-      consultant: this.taskOfConsultant.consultant,
+      state:this.taskOfConsultant.state,
+      user: this.taskOfConsultant.user,
       duration: this.taskOfConsultant.duration,
 
 
@@ -132,5 +139,10 @@ export class NewTaskOfConsultantComponent implements OnInit {
     this.Choisseproject=false
 
 
+  }
+
+  changeState(event: any) {
+
+    this.taskOfConsultant.state=event.target.value
   }
 }

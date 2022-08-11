@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TaskOfConsultant} from "../../../models/TaskOfConsultant.models";
 import {TaskOfConsultantService} from "../../../services/task-of-consultant.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Role} from "../../../models/User.model";
 
 @Component({
   selector: 'app-single-task-of-consultant',
@@ -12,6 +13,7 @@ export class SingleTaskOfConsultantComponent implements OnInit {
 
   currentTaskOfConsultant:TaskOfConsultant={
     id:0,
+    state:'',
     task:{
       task_id:0,
       name:'',
@@ -25,12 +27,15 @@ export class SingleTaskOfConsultantComponent implements OnInit {
         totalHours:0,
       }
     },
-    consultant:{
-      consultant_id:0,
-      name:'',
+    user:{
+      id:0,
       email:'',
       password:'',
-      phone:0,
+      username:'',
+      roles:[{
+        id:0,
+        name:''
+      }]
     },
     duration:0
   }

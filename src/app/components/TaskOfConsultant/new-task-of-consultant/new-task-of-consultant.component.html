@@ -52,13 +52,25 @@
               <div class="row mb-3">
                 <label class="col-sm-4 col-form-label form-label" >Consultant Name </label>
                 <div class="col-md-8 col-12"  >
-                  <select class="form-select"  aria-label="Default select example" name="consultant" (ngModelChange)="onSelectConsultant($event)" [ngModel]="selectedconsultant">
+                  <select class="form-select"  aria-label="Default select example" name="user" (ngModelChange)="onSelectConsultant($event)" [ngModel]="selectedUser">
                     <option selected disabled >Open this selection menu to choose your Consultant</option>
-                    <option *ngFor="let consultant of consultant" value="{{consultant.consultant_id}}"  [ngValue]="consultant"   >{{consultant.name}}</option>
+                    <option *ngFor="let user of user" value="{{user.id}}" name="user" [ngValue]="user"   >{{user.username}}</option>
 
                   </select>
                 </div>
               </div>
+              <div class="row mb-3">
+                <label class="col-sm-4 col-form-label form-label" >State </label>
+                <div class="col-md-8 col-12"  >
+                  <select class="form-select"  aria-label="Default select example" id="state" name="state" (change)="changeState($event)" >
+                    <option  value="TODO">TODO</option>
+                    <option  value="PROGRESSE">PROGRESS</option>
+                    <option  value="DONE">DONE</option>
+
+                  </select>
+                </div>
+              </div>
+
               <!-- row -->
               <div class="mb-3 row">
                 <label for="duration"  class="col-sm-4 col-form-label form-label">Duration : </label>

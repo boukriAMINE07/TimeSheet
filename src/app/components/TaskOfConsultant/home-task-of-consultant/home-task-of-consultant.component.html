@@ -52,10 +52,12 @@
               <th>Consultant</th>
               <th>Status</th>
               <th>Duration</th>
+
             </tr>
             </thead>
             <tbody>
             <ng-container *ngFor="let taskOfConsultant of taskOfConsultants">
+
               <tr  >
                 <td class="align-middle">
                   <div class="d-flex
@@ -72,13 +74,18 @@
                </span>
 
                 </td>
-                <td class="align-middle">{{taskOfConsultant.consultant.name}}</td>
-                <td class="align-middle">status</td>
+                <td class="align-middle">{{taskOfConsultant.user.username}}</td>
+                <td class="align-middle">
+                  <span *ngIf="taskOfConsultant.state!='DONE'"  [ngClass]="taskOfConsultant.state==='PROGRESSE'  ? 'bg-warning' : 'bg-danger'"  class="badge ">
+                {{taskOfConsultant.state}}
+
+                </span>
+                  <span *ngIf="taskOfConsultant.state=='DONE'"    class="badge bg-success">{{taskOfConsultant.state}}</span></td>
                 <td class="align-middle ">
 
                   <form [formGroup]="formGroup"  method="post">
                     <div class="row">
-                      <div class="col-md-2 mt-2">   {{taskOfConsultant.duration}}</div>
+                      <div class="col-md-2 mt-2">  {{taskOfConsultant.duration}}</div>
 
                       <div class="col-md-auto">
                         <button type="button" (click)="CurrentHours(taskOfConsultant)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
@@ -121,8 +128,9 @@
                   </form>
 
                 </td>
-              </tr>
-            </ng-container>
+
+              </tr></ng-container>
+
 
 
 

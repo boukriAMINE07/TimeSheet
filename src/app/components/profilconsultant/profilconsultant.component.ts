@@ -31,12 +31,16 @@ export class ProfilconsultantComponent implements OnInit {
         totalHours:0,
       }
     },
-    consultant:{
-      consultant_id:0,
-      name:'',
+    state:'',
+    user:{
+      id:0,
       email:'',
       password:'',
-      phone:0,
+      username:'',
+      roles:[{
+        id:0,
+        name:''
+      }]
     },
     duration:0
   }
