@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ConsultantService} from "../../../services/consultant.service";
 import {Consultant} from "../../../models/consultant.model";
+import {User} from "../../../models/User.model";
 
 @Component({
   selector: 'app-liste-consultant',
@@ -8,8 +9,8 @@ import {Consultant} from "../../../models/consultant.model";
   styleUrls: ['./liste-consultant.component.css']
 })
 export class ListeConsultantComponent implements OnInit {
-  listConsultant:any=[]
-  consultants:Consultant[]=[]
+  listUsers:any=[]
+  users:User[]=[]
   currentIndex = -1;
   name = '';
   page = 1;
@@ -19,17 +20,15 @@ export class ListeConsultantComponent implements OnInit {
   constructor(private service: ConsultantService) { }
 
   ngOnInit(): void {
-    this.service.getAllConsultants()
+    this.service.getAllUsers()
       .subscribe(project=>{
-        this.listConsultant=project
+        this.listUsers=project
       });
     this.retrieveConsultants()
   }
-  getRequestParams(searchConsultant: string, page: number, pageSize: number): any {
+  getRequestParams( page: number, pageSize: number): any {
     let params: any = {};
-    if (searchConsultant) {
-      params[`name`] = searchConsultant;
-    }
+
     if (page) {
       params[`page`] = page - 1;
     }
@@ -39,12 +38,12 @@ export class ListeConsultantComponent implements OnInit {
     return params;
   }
   retrieveConsultants(): void {
-    const params = this.getRequestParams(this.name, this.page, this.pageSize);
-    this.service.getAllConsultantWithPagination(params)
+    const params = this.getRequestParams(this.page, this.pageSize);
+    this.service.getAllUsersWithPagination(params)
       .subscribe(
         response => {
-          const { consultants, totalItems } = response;
-          this.consultants = consultants;
+          const { users, totalItems } = response;
+          this.users = users;
           this.count = totalItems;
           console.log(response);
         },

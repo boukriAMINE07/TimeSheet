@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Consultant} from "../../../models/consultant.model";
 import {ConsultantService} from "../../../services/consultant.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../../../models/User.model";
 
 @Component({
   selector: 'app-edit-consultant',
@@ -9,12 +10,13 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./edit-consultant.component.css']
 })
 export class EditConsultantComponent implements OnInit {
-  currentConsultant:Consultant={
-    consultant_id:0,
-    name:'',
+  currentUser:User={
+    id:0,
+    username:'',
     email:'',
     password:'',
-    phone:0,
+    roles:[]
+
   }
 
   constructor(private service:ConsultantService,private router:Router,private route:ActivatedRoute) { }
@@ -24,9 +26,9 @@ export class EditConsultantComponent implements OnInit {
 
   }
   getConsultant(id:number){
-    this.service.getConsultant(id).
+    this.service.getUser(id).
     subscribe(data=>{
-        this.currentConsultant=data;
+        this.currentUser=data;
         console.log(data);
       },error => {
         console.log(error)
@@ -35,17 +37,14 @@ export class EditConsultantComponent implements OnInit {
   }
   editConsultant() {
     const data={
-      consultant_id: this.currentConsultant.consultant_id,
-      name:this.currentConsultant.name,
-      tel:this.currentConsultant.phone,
-      password:this.currentConsultant.password,
-      email:this.currentConsultant.email,
-
+      id: this.currentUser.id,
+      username:this.currentUser.username,
+      email:this.currentUser.email,
     }
-    this.service.updateConsultant(this.currentConsultant.consultant_id,data)
+    this.service.updateConsultant(this.currentUser.id,data)
       .subscribe(response=>{
         console.log(response)
-        this.router.navigate([`/consultant/singleConsultant/${this.currentConsultant.consultant_id}`])
+        this.router.navigate([`/consultant/singleConsultant/${this.currentUser.id}`])
       },error => {
         console.log(error);
       })
