@@ -5,7 +5,7 @@ import {Project} from "../models/project.model";
 import {Consultant} from "../models/consultant.model";
 import {User} from "../models/User.model";
 
-const baseUrl="http://localhost:8080/consultants"
+const baseUrl="http://localhost:8080/users"
 
 @Injectable({
   providedIn: 'root'
@@ -27,21 +27,33 @@ export class ConsultantService {
   getAllConsultants():Observable<Consultant[]>{
     return this.http.get<Consultant[]>(baseUrl);
   }
+  getAllUsers():Observable<User[]>{
+    return this.http.get<User[]>("http://localhost:8080/users/usersByRole?userRole=ROLE_USER");
+  }
 
   getConsultant(id:any):Observable<Consultant>{
     return this.http.get<Consultant>(`${baseUrl}/${id}`)
+  }
+  getUser(id:any):Observable<User>{
+    return this.http.get<User>(`${baseUrl}/${id}`)
   }
   newConsultant(data:any):Observable<any>{
     return this.http.post(baseUrl,data);
   }
   updateConsultant(id:any,data:any):Observable<any>{
+    return this.http.patch(`${baseUrl}/${id}`,data);
+  }
+  updateUser(id:any,data:any):Observable<any>{
     return this.http.put(`${baseUrl}/${id}`,data);
   }
-  deleteConsultant(id:any):Observable<any>{
+  deleteUser(id:any):Observable<any>{
     return this.http.delete(`${baseUrl}/${id}`);
   }
   getAllConsultantWithPagination(params:any):Observable<any>{
     return this.http.get<any>(baseUrl+'/pageConsultants', { params });
+  }
+  getAllUsersWithPagination(params:any):Observable<any>{
+    return this.http.get<any>("http://localhost:8080/users/usersByRole?userRole=ROLE_USER", { params });
   }
 
 

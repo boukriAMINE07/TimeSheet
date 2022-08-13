@@ -37,37 +37,31 @@
               <!-- row -->
               <div class=" row">
                 <label  class="col-sm-4 col-form-label
-                          form-label"><strong>Name Of the Consultant :</strong></label>
+                          form-label"><strong>Name Of User:</strong></label>
 
                 <div class="col-md-8 col-12">
-                  <p class="col-form-label"> {{currentConsultant.name}}</p>
+                  <p class="col-form-label"> {{currentUser.username}}</p>
                 </div>
               </div>
               <!-- row -->
-              <div class=" row">
-                <label  class="col-sm-4 col-form-label
-                          form-label"><strong> phone number Of the Consultant :</strong></label>
-
-                <div class="col-md-8 col-12">
-                  <p class="col-form-label">{{currentConsultant.phone}}</p>
-                </div>
-              </div>
               <!-- row -->
-              <div class=" row">
-                <label  class="col-sm-4 col-form-label
-                          form-label"><strong>Password :</strong></label>
-
-                <div class="col-md-8 col-12">
-                  <p class="col-form-label"> {{currentConsultant.password}}</p>
-                </div>
-              </div>
               <!-- row -->
               <div class=" row">
                 <label  class="col-sm-4 col-form-label
                           form-label"><strong>Email :</strong></label>
 
                 <div class="col-md-8 col-12">
-                  <p class="col-form-label"> {{currentConsultant.email}}</p>
+                  <p class="col-form-label"> {{currentUser.email}}</p>
+                </div>
+              </div>
+              <div class=" row">
+                <label  class="col-sm-4 col-form-label
+                          form-label"><strong>Roles :</strong></label>
+
+                <div class="col-md-8 col-12">
+                  <p class="col-form-label"> <ng-container *ngFor="let p of currentUser.roles">
+                    {{p.name}}
+                  </ng-container></p>
                 </div>
               </div>
               <!-- row -->
@@ -78,7 +72,7 @@
 
 
                 <div class=" col-md-6 mt-4">
-                  <button type="submit" routerLink="/consultant/editConsultant/{{currentConsultant.consultant_id}}" class="btn btn-primary"> Edit Information</button>
+                  <button type="submit" routerLink="/consultant/editConsultant/{{currentUser.id}}" class="btn btn-primary"> Edit Information</button>
                 </div>
                 <div class=" col-md-6 mt-4">
 
@@ -95,7 +89,7 @@
   <div class="row">
     <div class="col-xl-2 col-lg-4 col-md-12 col-12">
       <div class="mb-4 mb-lg-0">
-        <h4 class="mb-1">Delete Project</h4>
+        <h4 class="mb-1">Delete User</h4>
       </div>
 
     </div>
@@ -113,7 +107,7 @@
           <div>
             <!-- text -->
             <p>Delete any and all content you have, such as articles, comments, your reading list or chat messages. Allow your username to become available to anyone.</p>
-            <a   (click)="deleteConsultant()" class="btn btn-danger"> Delete Project</a>
+            <a   (click)="deleteConsultant()" class="btn btn-danger"> Delete User</a>
             <p class="small mb-0 mt-3">Feel free to contact with any <a href="#">dashui@example.com</a> questions.
             </p>
           </div>

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import {Consultant} from "../../../models/consultant.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ConsultantService} from "../../../services/consultant.service";
+import {User} from "../../../models/User.model";
 
 @Component({
   selector: 'app-single-consultant',
@@ -10,12 +11,13 @@ import {ConsultantService} from "../../../services/consultant.service";
   styleUrls: ['./single-consultant.component.css']
 })
 export class SingleConsultantComponent implements OnInit {
-  currentConsultant:Consultant={
-    consultant_id:0,
-    name:'',
+  currentUser:User={
+    id:0,
+    username:'',
     email:'',
     password:'',
-    phone:0,
+    roles:[]
+
   }
   message='';
 
@@ -26,9 +28,9 @@ export class SingleConsultantComponent implements OnInit {
 
   }
   getConsultant(id:number){
-    this.service.getConsultant(id).
+    this.service.getUser(id).
     subscribe(data=>{
-        this.currentConsultant=data;
+        this.currentUser=data;
         console.log(data);
       },error => {
         console.log(error)
@@ -36,7 +38,7 @@ export class SingleConsultantComponent implements OnInit {
     )
   }
   deleteConsultant() {
-    this.service.deleteConsultant(this.currentConsultant.consultant_id)
+    this.service.deleteUser(this.currentUser.id)
       .subscribe(response=>{
           console.log(response)
           this.router.navigate(['/consultant/listeConsultant'])
