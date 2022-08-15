@@ -3,13 +3,13 @@
     <div class="col-lg-12 col-md-12 col-12">
       <!-- Page header -->
       <div class="d-flex justify-content-between align-items-center">
-      <div class="border-bottom pb-4 mb-4 ">
-        <h3 class="mb-0 fw-bold">Profile du Consultant</h3>
-      </div>
+        <div class="border-bottom pb-4 mb-4 ">
+          <h3 class="mb-0 fw-bold">Profile du Consultant</h3>
+        </div>
         <div>
           <a routerLink="/consultant/newTaskOfConsultant" class="btn btn-white">Create New Task</a>
         </div>
-    </div>
+      </div>
     </div>
   </div>
   <div class="row align-items-center">
@@ -52,9 +52,24 @@
       <!-- card  -->
       <div class="card">
         <!-- card header  -->
+
         <div class="card-header bg-white  py-4">
-          <h4 class="mb-0">Temps de distribution des taches en heures</h4>
+
+          <div class="row">
+            <div class="col-md-6">   <h4 class="mt-2 p-0">Temps de distribution des taches en heures</h4></div>
+            <div class="col-md-6">
+              <div class="ms-lg-3  d-md-none d-lg-block">
+                <!-- Form
+                <form class="d-flex align-items-center">
+                  <input type="search" class="form-control" [(ngModel)]="name"
+                         (keyup)="searchName($event)" placeholder="Search By Name Of Consultant" />
+                </form> -->
+              </div>
+            </div>
+
+          </div>
         </div>
+
         <!-- table  -->
         <div class="table-responsive">
           <table class="table text-nowrap mb-0">
@@ -70,142 +85,117 @@
             </thead>
             <tbody >
             <!--première ligne du tableau de Timesheet-->
-            <ng-container *ngFor="let taskOfConsulatnt of tasksOfConsultantsByName">
-            <tr >
-              <td class="align-middle">
-                <div class="d-flex align-items-center">
+            <ng-container *ngFor="let taskOfConsulatnt of taskOfConsultants; let idx=index; let even=even">
+              <tr  >
+                <td class="align-middle">
+                  <div class="d-flex align-items-center">
 
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1"> <a href="#" class="text-inherit">18/07</a></h5>
+                    <div class="ms-3 lh-1">
+                      <h5 class=" mb-1"> <a href="#" class="text-inherit">18/07</a></h5>
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td class="align-middle ">{{taskOfConsulatnt.task.project.name}}</td>
-              <td class="align-middle"><span>{{taskOfConsulatnt.task.name}}</span></td>
-              <td class="align-middle "><span *ngIf="taskOfConsulatnt.duration>0"  [ngClass]="taskOfConsulatnt.duration <= 2 ? 'bg-success' : 'bg-warning'"  class="badge ">
-                {{taskOfConsulatnt.duration<=2?'Terminé':'En cours'}}
+                </td>
+                <td class="align-middle "  ><a routerLink="/consultant/single-taskOfConsultant/{{taskOfConsulatnt.id}}"> {{taskOfConsulatnt.task.project.name}}</a></td>
+                <td class="align-middle"><span>{{taskOfConsulatnt.task.name}}</span></td>
+                <td class="align-middle "><span *ngIf="taskOfConsulatnt.state!='DONE'"  [ngClass]="taskOfConsulatnt.state==='PROGRESSE'  ? 'bg-warning' : 'bg-danger'"  class="badge ">
+                {{taskOfConsulatnt.state}}
 
                 </span>
-                <span *ngIf="taskOfConsulatnt.duration==0"    class="badge bg-danger">A  Faire</span>
-              </td>
-              <td class="text-center ">
-                <div class="row">
-                  <div class="col-md-3 mt-2">
-                {{taskOfConsulatnt.duration}}
-                </div>
-                  <div class="col-md-auto">
-                <form [formGroup]="formGroup"  method="post">
+                  <span *ngIf="taskOfConsulatnt.state=='DONE'"    class="badge bg-success">{{taskOfConsulatnt.state}}</span>
+                </td>
+                <td class="text-center ">
                   <div class="row">
-
-                    <div class="col-md-auto">
-                      <button type="button" (click)="currentDuration(taskOfConsulatnt)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
-                        Edit Hours
-                      </button>
-                      <!-- Modal -->
+                    <div class="col-md-3 mt-2">
+                      {{taskOfConsulatnt.duration}}
                     </div>
-                    <!-- Button trigger modal -->
-                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalScrollableTitle">Total Hours</h5>
-                            <button type="button" id="Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true"></span>
+                    <div class="col-md-auto">
+                      <form [formGroup]="formGroup"  method="post">
+                        <div class="row">
+
+                          <div class="col-md-auto">
+                            <button type="button" (click)="currentDuration(taskOfConsulatnt)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+                              Edit Hour & State
                             </button>
+                            <!-- Modal -->
                           </div>
-                          <div class="modal-body">
-                            <div class="mb-3">
-                              <label for="hours" class="form-label">Total Hours</label>
-                              <input class="form-control" type="number" name="duration" formControlName="duration"  id="hours" min="1" >
+                          <!-- Button trigger modal -->
+                          <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalScrollableTitle">Total Hours</h5>
+                                  <button type="button" id="Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="mb-3">
+                                    <label for="hours" class="form-label">Total Hours</label>
+                                    <input class="form-control" type="number" name="duration" formControlName="duration"  id="hours" min="1" >
+                                  </div>
+                                  <div>
+                                    <label for="state" class="form-label">State</label>
+                                    <select class="form-select"  aria-label="Default select example" name="state" id="state" formControlName="state"  >
+                                      <option  value="TODO">TODO</option>
+                                      <option  value="PROGRESSE">PROGRESS</option>
+                                      <option  value="DONE">DONE</option>
+
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button"  (click)="UpdateHoursANDState()" class="btn btn-primary">Save changes</button>
+                                </div>
+
+
+                              </div>
                             </div>
                           </div>
 
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button"  (click)="UpdateHours()" class="btn btn-primary">Save changes</button>
-                          </div>
                         </div>
-                      </div>
-                    </div>
+                        <!-- Button trigger modal -->
 
-                  </div>
-                  <!-- Button trigger modal -->
-
-                  <!-- Modal -->
+                        <!-- Modal -->
 
 
 
-                </form></div></div>
-              </td>
+                      </form>
+                    </div></div>
+                </td>
 
-            </tr></ng-container>
+              </tr></ng-container>
             <!--deuxième ligne du tableau de Timesheet-->
-      <!--      <tr>
-              <td class="align-middle border">
-                <div class="d-flex align-items-center">
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1"> <a href="#" class="text-inherit">19/07</a></h5>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle border">Projet 2</td>
-              <td class="align-middle border"><span>tache 2</span></td>
-              <td class="align-middle col-1 border"><span class="badge bg-danger">A faire</span></td>
-              <td class="align-middle text-dark-info">
-                <div class="text-center">5H</div>
-              </td>
-            </tr>
-            &lt;!&ndash;troisième ligne ligne du tableau de Timesheet&ndash;&gt;
-            <tr>
-              <td class="align-middle border">
-                <div class="d-flex align-items-center">
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1"> <a href="#" class="text-inherit">20/07</a></h5>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle border">Projet 3</td>
-              <td class="align-middle border"><span>Tache3</span></td>
-              <td class="align-middle col-1 border"><span class="badge bg-success">En cours</span></td>
-              <td class="align-middle text-dark-info">
-                <div class="text-center">3H</div>
-              </td>
-            </tr>
-            &lt;!&ndash;quatrième ligne ligne du tableau de Timesheet&ndash;&gt;
-            <tr>
-              <td class="align-middle border">
-                <div class="d-flex align-items-center">
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1"> <a href="#" class="text-inherit">21/07</a></h5>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle border">Projet 4</td>
-              <td class="align-middle border"><span>Tache 4</span></td>
-              <td class="align-middle col-1 border"><span class="badge bg-warning">Terminé</span></td>
-              <td class="align-middle text-dark-info">
-                <div class="text-center">1H</div>
-              </td>
-            </tr>
-            &lt;!&ndash;cinquième ligne du tableau de Timesheet&ndash;&gt;
-            <tr>
-              <td class="align-middle">
-                <div class="d-flex align-items-center">
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1"> <a href="#" class="text-inherit">22/07</a></h5>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle border">Projet 5</td>
-              <td class="align-middle border"><span>Tache 5</span></td>
-              <td class="align-middle col-1 border"><span class="badge bg-success">En cours</span></td>
-              <td class="align-middle text-dark-info">
-                <div class="text-center">4H</div>
-              </td>
-            </tr>-->
+
 
             </tbody>
           </table>
+        </div>
+        <div class="card-footer bg-white text-center">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <pagination-controls
+
+                previousLabel="Previous"
+                nextLabel="Next"
+                [responsive]="true"
+                (pageChange)="handlePageChange($event)"
+              >
+                <!-- center alignment -->
+
+                <li class="page-item" *ngFor="
+          let taskOfConsultant of taskOfConsultants | paginate : {
+                  itemsPerPage: pageSize,
+                  currentPage: page,
+                  totalItems: count
+                };
+                 let i = index" >
+                  <a class="page-link" href="#">{{i}}</a></li>
+
+              </pagination-controls>
+            </ul>
+          </nav>
+
         </div>
       </div>
     </div>

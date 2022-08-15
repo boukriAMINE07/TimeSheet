@@ -17,18 +17,20 @@ export class ListeConsultantComponent implements OnInit {
   count = 0;
   pageSize = 5;
   pageSizes = [5, 10, 15];
-  constructor(private service: ConsultantService) { }
+  constructor(private consultantService: ConsultantService) { }
 
   ngOnInit(): void {
-    this.service.getAllUsers()
-      .subscribe(project=>{
-        this.listUsers=project
+    this.consultantService.getAllUsers()
+      .subscribe(user=>{
+        this.listUsers=user
       });
-    this.retrieveConsultants()
+    this.retrieveUsers()
   }
-  getRequestParams( page: number, pageSize: number): any {
+  getRequestParams(searchName: string, page: number, pageSize: number): any {
     let params: any = {};
-
+    if (searchName) {
+      params[`name`] = searchName;
+    }
     if (page) {
       params[`page`] = page - 1;
     }
@@ -37,9 +39,10 @@ export class ListeConsultantComponent implements OnInit {
     }
     return params;
   }
-  retrieveConsultants(): void {
-    const params = this.getRequestParams(this.page, this.pageSize);
-    this.service.getAllUsersWithPagination(params)
+
+  retrieveUsers(): void {
+    const params = this.getRequestParams(this.name, this.page, this.pageSize);
+    this.consultantService.getAllUsersWithPagination(params)
       .subscribe(
         response => {
           const { users, totalItems } = response;
@@ -51,20 +54,20 @@ export class ListeConsultantComponent implements OnInit {
           console.log(error);
         });
   }
+
   handlePageChange(event: number): void {
     this.page = event;
-    this.retrieveConsultants();
+    this.retrieveUsers();
   }
   handlePageSizeChange(event: any): void {
     this.pageSize = event.target.value;
     this.page = 1;
-    this.retrieveConsultants();
+    this.retrieveUsers();
   }
-
-  searchConsultant(event: KeyboardEvent): void {
+  searchName(event: KeyboardEvent): void {
     this.name=(event.target as HTMLInputElement).value;
     this.page = 1;
-    this.retrieveConsultants();
+    this.retrieveUsers();
   }
 
 }

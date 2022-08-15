@@ -26,9 +26,19 @@
         <!-- card header  -->
         <div class="card-header bg-white  py-4">
           <div class="row">
-
+            <div class="col-md-4">  <h4 class="mt-2">All Users</h4></div>
+            <div class="col-md-7">
+              <div class="ms-lg-3  d-md-none d-lg-block">
+                <!-- Form -->
+                <form class="d-flex align-items-center">
+                  <input type="search" class="form-control" [(ngModel)]="name"
+                         (keyup)="searchName($event)" placeholder="Search By UserName" />
+                </form>
+              </div>
+            </div>
             <div class="col-md-1"></div>
           </div>
+
         </div>
         <!-- table  -->
         <div class="table-responsive">
