@@ -59,25 +59,9 @@
                   </select>
                 </div>
               </div>
-              <div class="row mb-3">
-                <label class="col-sm-4 col-form-label form-label" >State </label>
-                <div class="col-md-8 col-12"  >
-                  <select class="form-select"  aria-label="Default select example" id="state" name="state" (change)="changeState($event)" >
-                    <option  value="TODO">TODO</option>
-                    <option  value="PROGRESSE">PROGRESS</option>
-                    <option  value="DONE">DONE</option>
 
-                  </select>
-                </div>
-              </div>
 
-              <!-- row -->
-              <div class="mb-3 row">
-                <label for="duration"  class="col-sm-4 col-form-label form-label">Duration : </label>
-                <div class="col-md-8 col-12">
-                  <input type="number" class="form-control" [(ngModel)]="taskOfConsultant.duration" name="duration" placeholder="Duration" min="0" id="duration" required>
-                </div>
-              </div>
+
               <!-- row -->
               <div class="row align-items-center">
                 <div class="offset-md-4 col-md-8 mt-4">

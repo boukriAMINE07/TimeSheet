@@ -27,15 +27,18 @@ export class TaskOfConsultantService {
   updateTaskOfConsultant(id:number,data:TaskOfConsultant):Observable<TaskOfConsultant>{
     return this.http.put<TaskOfConsultant>(`${baseUrl}/${id}`,data);
   }
+  updateHoursAndStates(id:number,duration:number,state:string):Observable<TaskOfConsultant>{
+    return this.http.patch<TaskOfConsultant>(`${baseUrl}/edit/${id}`, {duration:duration,state:state});
+  }
   deleteTaskOfConsultant(id:number):Observable<TaskOfConsultant>{
     return this.http.delete<TaskOfConsultant>(`${baseUrl}/${id}`);
   }
   updateHours(id:number,duration:number):Observable<TaskOfConsultant>{
     return this.http.patch<TaskOfConsultant>(`${baseUrl}/${id}`, {duration:duration});
   }
-  getTaskOfConsultantByConsultantName(name:string):Observable<TaskOfConsultant[]>{
-    const params=new HttpParams().set('consultant',name)
-    return this.http.get<TaskOfConsultant[]>(`${baseUrl}/searchConsultant`,{params});
+  getTaskOfConsultantByConsultantName(name:string,params:any):Observable<any>{
+
+    return this.http.get<any>(baseUrl+'/searchConsultant?consultant='+name,{params});
   }
   getTaskOfConsultantByTaskName(name:string):Observable<TaskOfConsultant[]>{
     const params=new HttpParams().set('task',name)

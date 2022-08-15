@@ -33,7 +33,7 @@
         <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/consultant/profil">
+              <a class="nav-link" routerLinkActive="active" routerLink="/consultant/profile">
                 Profile
               </a>
             </li>
@@ -80,15 +80,16 @@
 
 
           <ul class="nav flex-column " *ngIf="!isLoggedIn">
-            <li class="nav-item">
-              <a  class="nav-link" routerLink="admin/createConsultant">Sign Up</a>
-            </li>
+
             <li class="nav-item">
               <a class="nav-link" routerLinkActive="active" routerLink="admin/signIn">Login</a>
             </li>
           </ul>
 
           <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+            <li class="nav-item">
+            <a  class="nav-link" routerLink="admin/createConsultant">Create consultant</a>
+          </li>
             <li class="nav-item">
               <a  class="nav-link" routerLink="consultant/profile">{{ username }}</a>
             </li>
