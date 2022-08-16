@@ -17,11 +17,11 @@ export class HomeTaskOfConsultantComponent implements OnInit {
   currentTaskOfConsultant:TaskOfConsultant={
     id:0,
     task:{
-      task_id:0,
+      id:0,
       name:'',
       description:'',
       project:{
-        project_id:0,
+        id:0,
         name:'',
         description:'',
         startDate:new Date(),

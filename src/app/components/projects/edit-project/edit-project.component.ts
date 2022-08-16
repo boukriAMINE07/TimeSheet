@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class EditProjectComponent implements OnInit {
 
   currentProject:Project={
-    project_id:0,
+    id:0,
     name:'',
     description:'',
     startDate:new Date(),
@@ -38,17 +38,17 @@ export class EditProjectComponent implements OnInit {
   }
   editProject() {
     const data={
-      project_id: this.currentProject.project_id,
+      id: this.currentProject.id,
       name:this.currentProject.name,
       description:this.currentProject.description,
       startDate:this.currentProject.startDate,
       endDate:this.currentProject.endDate,
       totalHours:this.currentProject.totalHours
     }
-    this.projectService.updateProject(this.currentProject.project_id,data)
+    this.projectService.updateProject(this.currentProject.id,data)
                       .subscribe(response=>{
                         console.log(response)
-                        this.router.navigate([`/project/single-project/${this.currentProject.project_id}`])
+                        this.router.navigate([`/project/single-project/${this.currentProject.id}`])
                       },error => {
                         console.log(error);
                       })

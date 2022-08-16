@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   totalHours: any;
   formGroup!:FormGroup
   currentProject:Project={
-    project_id:0,
+    id:0,
     name:'',
     description:'',
     startDate:new Date(),
@@ -127,7 +127,7 @@ export class HomeComponent implements OnInit {
   }
 
   CurrentHours(project: Project) {
-    this.currentProject.project_id=project.project_id;
+    this.currentProject.id=project.id;
     this.formGroup.controls['totalHours'].setValue(project.totalHours)
 
   }
@@ -136,7 +136,7 @@ export class HomeComponent implements OnInit {
     this.currentProject.totalHours=this.formGroup.value.totalHours;
 
     console.log( this.currentProject.totalHours)
-    this.projectService.updateHours(this.currentProject.project_id,this.currentProject.totalHours)
+    this.projectService.updateHours(this.currentProject.id,this.currentProject.totalHours)
       .subscribe(resp=>{
         let ref=document.getElementById('Close')
         ref?.click();

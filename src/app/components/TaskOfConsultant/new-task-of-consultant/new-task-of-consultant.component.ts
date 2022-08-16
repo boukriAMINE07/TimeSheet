@@ -22,11 +22,11 @@ export class NewTaskOfConsultantComponent implements OnInit {
   taskOfConsultant:TaskOfConsultant={
     id:0,
     task:{
-      task_id:0,
+      id:0,
       name:'',
       description:'',
       project:{
-        project_id:0,
+        id:0,
         name:'',
         description:'',
         startDate:new Date(),

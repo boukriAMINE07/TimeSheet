@@ -13,11 +13,11 @@ export class EditTacheComponent implements OnInit {
 
   project!:Project[]
   currentTache:Task={
-    task_id:0,
+    id:0,
     name:'',
     description:'',
     project:{
-      project_id:0,
+      id:0,
       name:'',
       description:'',
       startDate:new Date(),
@@ -47,15 +47,15 @@ export class EditTacheComponent implements OnInit {
   }
   editTache() {
     const data={
-      task_id: this.currentTache.task_id,
+      id: this.currentTache.id,
       name:this.currentTache.name,
       description: this.currentTache.description,
       project: this.currentTache.project,
     }
-    this.tacheService.updateTache(this.currentTache.task_id,data)
+    this.tacheService.updateTache(this.currentTache.id,data)
       .subscribe(response=>{
         console.log(response)
-        this.router.navigate([`/task/single-task/${this.currentTache.task_id}`])
+        this.router.navigate([`/task/single-task/${this.currentTache.id}`])
       },error => {
         console.log(error);
       })
