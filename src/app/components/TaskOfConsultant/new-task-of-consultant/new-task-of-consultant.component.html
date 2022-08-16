@@ -33,7 +33,7 @@
                 <div class="col-md-8 col-12"  >
                   <select class="form-select"  aria-label="Default select example" (ngModelChange)="onSelectProject($event)" name="project"  [ngModel]="selectedproject">
                     <option selected disabled >Open this selection menu to choose your Project</option>
-                    <option *ngFor="let project of project" value="{{project.project_id}}"  [ngValue]="project"   >{{project.name}}</option>
+                    <option *ngFor="let project of project" value="{{project.id}}"  [ngValue]="project"   >{{project.name}}</option>
 
                   </select>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="col-md-8 col-12"  >
                   <select class="form-select" [disabled]="Choisseproject" aria-label="Default select example" name="task"  (ngModelChange)="onSelectTask($event)" [ngModel]="selectedtask">
                     <option selected disabled >Open this selection menu to choose your Task</option>
-                    <option *ngFor="let task of task" value="{{task.task_id}}" name="task" [(ngModel)]="taskOfConsultant.task" [ngValue]="task" >{{task.name}}</option>
+                    <option *ngFor="let task of task" value="{{task.id}}" name="task" [(ngModel)]="taskOfConsultant.task" [ngValue]="task" >{{task.name}}</option>
 
                   </select>
                 </div>

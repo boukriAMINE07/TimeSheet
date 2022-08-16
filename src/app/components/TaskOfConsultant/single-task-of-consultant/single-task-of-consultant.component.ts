@@ -15,11 +15,11 @@ export class SingleTaskOfConsultantComponent implements OnInit {
     id:0,
     state:'',
     task:{
-      task_id:0,
+      id:0,
       name:'',
       description:'',
       project:{
-        project_id:0,
+        id:0,
         name:'',
         description:'',
         startDate:new Date(),

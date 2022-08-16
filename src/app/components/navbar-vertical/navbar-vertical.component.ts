@@ -8,7 +8,7 @@ import {AuthService} from "../../services/auth.service";
   styleUrls: ['./navbar-vertical.component.css']
 })
 export class NavbarVerticalComponent implements OnInit {
-  private roles: string[] = [];
+  roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
   showModeratorBoard = false;

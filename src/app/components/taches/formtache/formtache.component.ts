@@ -12,11 +12,11 @@ import {Project} from "../../../models/project.model";
 })
 export class FormtacheComponent implements OnInit {
   tache:Task={
-    task_id:0,
+    id:0,
     name:'',
     description:'',
     project:{
-      project_id:0,
+      id:0,
       name:'',
       description:'',
       startDate:new Date(),
@@ -45,7 +45,7 @@ export class FormtacheComponent implements OnInit {
 
   saveTache():void{
     const data={
-      task_id: this.tache.task_id,
+      id: this.tache.id,
       name:this.tache.name,
       description: this.tache.description,
       project: this.tache.project,

@@ -75,7 +75,6 @@
           <table class="table text-nowrap mb-0">
             <thead class="table-light">
             <tr >
-              <th>Jours</th>
               <th>Projets</th>
               <th >taches</th>
               <th>suivi du travail</th>
@@ -87,14 +86,7 @@
             <!--première ligne du tableau de Timesheet-->
             <ng-container *ngFor="let taskOfConsulatnt of taskOfConsultants; let idx=index; let even=even">
               <tr  >
-                <td class="align-middle">
-                  <div class="d-flex align-items-center">
 
-                    <div class="ms-3 lh-1">
-                      <h5 class=" mb-1"> <a href="#" class="text-inherit">18/07</a></h5>
-                    </div>
-                  </div>
-                </td>
                 <td class="align-middle "  ><a routerLink="/consultant/single-taskOfConsultant/{{taskOfConsulatnt.id}}"> {{taskOfConsulatnt.task.project.name}}</a></td>
                 <td class="align-middle"><span>{{taskOfConsulatnt.task.name}}</span></td>
                 <td class="align-middle "><span *ngIf="taskOfConsulatnt.state!='DONE'"  [ngClass]="taskOfConsulatnt.state==='PROGRESSE'  ? 'bg-warning' : 'bg-danger'"  class="badge ">

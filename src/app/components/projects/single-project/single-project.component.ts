@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class SingleProjectComponent implements OnInit {
 
   currentProject:Project={
-    project_id:0,
+    id:0,
     name:'',
     description:'',
     startDate:new Date(),
@@ -40,7 +40,7 @@ export class SingleProjectComponent implements OnInit {
 
 
   deleteProject() {
-      this.projectService.deleteProject(this.currentProject.project_id)
+      this.projectService.deleteProject(this.currentProject.id)
                           .subscribe(response=>{
                               console.log(response)
                             this.router.navigate(['/project/home'])

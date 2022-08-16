@@ -13,11 +13,11 @@ import {Project} from "../../../models/project.model";
 export class SingleTacheComponent implements OnInit {
 
   currentTache:Task={
-    task_id:0,
+    id:0,
     name:'',
     description:'',
     project:{
-      project_id:0,
+      id:0,
       name:'',
       description:'',
       startDate:new Date(),
@@ -47,7 +47,7 @@ export class SingleTacheComponent implements OnInit {
 
 
   deleteTache() {
-    this.tacheService.deleteTache(this.currentTache.task_id)
+    this.tacheService.deleteTache(this.currentTache.id)
       .subscribe(response=>{
           console.log(response)
           this.router.navigate(['/task/home'])
