@@ -9,6 +9,8 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AuthService {
+  roles: string[] = [];
+  private authStorageKey = 'auth-user';
   constructor(private http: HttpClient) {}
   login(username: string, password: string): Observable<any> {
     return this.http.post(
@@ -34,4 +36,26 @@ export class AuthService {
   logout(): Observable<any> {
     return this.http.post(AUTH_API + 'signout', { }, httpOptions);
   }
+  public getUser(): any {
+    const user = window.sessionStorage.getItem(this.authStorageKey);
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    return {};
+  }
+  isAdmin():boolean {
+    let type:boolean=false;
+
+    this.roles = this.getUser().roles;
+    this.roles.forEach(role=>{
+      console.log(role)
+      if (role=='ROLE_ADMIN') return type=true
+      else return type=false
+
+
+    })
+    return  type;
+  }
+
 }

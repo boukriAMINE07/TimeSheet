@@ -28,35 +28,72 @@ import {
   SingleTaskOfConsultantComponent
 } from "./components/TaskOfConsultant/single-task-of-consultant/single-task-of-consultant.component";
 import {RegisterComponent} from "./components/Admin/authAdmin/register/register.component";
+import {AuthAdminGuard} from "./guards/auth-admin.guard";
+import {AuthUserGuard} from "./guards/auth-user.guard";
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'project/home',pathMatch:'full'},
-  {path:"project/home",component:HomeComponent},
-  {path:"project/newProject",component:NewProjectComponent},
-  {path:"project/editProject/:id",component:EditProjectComponent},
-  {path:"project/single-project/:id",component:SingleProjectComponent},
-  {path:"consultant/signIn",component:SignInComponent},
+  {path:'',redirectTo:'/admin/signIn',pathMatch:'full'},
+  {path:'admin/signIn',component:SignInAdminComponent},
+
+
   {path:"admin/createConsultant",component:RegisterComponent},
   {path:"consultant/forgetPassword",component:ForgetPasswordComponent},
-  {path:"admin/signIn",component:SignInAdminComponent},
   {path:"admin/forgetPassword",component:ForgetPasswordAdminComponent},
-  {path:"error",component:ErrorComponent},
-  {path:"consultant/profile",component:ProfilconsultantComponent},
-  {path:"task/newTask",component:FormtacheComponent},
-  {path:"task/home",component:HometachesComponent},
-  {path:"task/single-task/:id",component:SingleTacheComponent},
-  {path:"task/edit-task/:id",component:EditTacheComponent},
-  {path:"consultant/listeConsultant",component:ListeConsultantComponent},
-  {path:"consultant/singleConsultant/:id",component:SingleConsultantComponent},
-  {path:"consultant/editConsultant/:id",component:EditConsultantComponent},
-  {path:"consultant/newConsultant",component:NewConsultantComponent},
-  {path:"consultant/newTaskOfConsultant",component:NewTaskOfConsultantComponent},
-  {path:"consultant/TaskOfConsultant",component:HomeTaskOfConsultantComponent},
-  {path:"consultant/single-taskOfConsultant/:id",component:SingleTaskOfConsultantComponent},
-  {path:"not-found",component: ErrorComponent},
-  {path:"**",redirectTo:'/not-found'}
 
+
+
+  {path:"error",component:ErrorComponent},
+  {
+    path: 'user',
+    canActivate: [AuthUserGuard],
+    children: [
+      {path:'',redirectTo:'profile',pathMatch:'full'},
+      {path:'profile', component: ProfilconsultantComponent},
+      {path:"newTaskOfConsultant",component:NewTaskOfConsultantComponent},
+
+    ]
+  },
+  {
+    path: 'project',
+    canActivate: [AuthAdminGuard],
+    children: [
+      {path:'',redirectTo:'home',pathMatch:'full'},
+      {path:'home', component: HomeComponent},
+      {path:"newProject",component:NewProjectComponent},
+      {path:"editProject/:id",component:EditProjectComponent},
+      {path:"single-project/:id",component:SingleProjectComponent},
+    ]
+  },
+  {
+    path: 'task',
+    canActivate: [AuthAdminGuard],
+    children: [
+      {path:'',redirectTo:'home',pathMatch:'full'},
+      {path:"newTask",component:FormtacheComponent},
+      {path:"home",component:HometachesComponent},
+      {path:"single-task/:id",component:SingleTacheComponent},
+      {path:"edit-task/:id",component:EditTacheComponent},
+    ]
+  },
+  {
+    path: 'consultant',
+    canActivate: [AuthAdminGuard],
+    children: [
+      {path:'',redirectTo:'listeConsultant',pathMatch:'full'},
+      {path:"listeConsultant",component:ListeConsultantComponent},
+      {path:"singleConsultant/:id",component:SingleConsultantComponent},
+      {path:"editConsultant/:id",component:EditConsultantComponent},
+      {path:"newConsultant",component:NewConsultantComponent},
+      {path:"newTaskOfConsultant",component:NewTaskOfConsultantComponent},
+      {path:"TaskOfConsultant",component:HomeTaskOfConsultantComponent},
+      {path:"single-taskOfConsultant/:id",component:SingleTaskOfConsultantComponent},
+    ]
+  },
+
+
+  {path:"not-found",component: ErrorComponent},
+  //{path:"**",redirectTo:'/not-found'}
 ];
 
 @NgModule({

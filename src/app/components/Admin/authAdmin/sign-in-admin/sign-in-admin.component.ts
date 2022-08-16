@@ -31,12 +31,12 @@ export class SignInAdminComponent implements OnInit {
           if (role==='ROLE_ADMIN') {
             this.router.navigate(['project/home']);
           } else{
-            this.router.navigate(['consultant/profile']);
+            this.router.navigate(['user/profile']);
           }
 
         })
 
-      }, 1000);  //1s
+      }, 500);  //0.5s
 
     }
   }
