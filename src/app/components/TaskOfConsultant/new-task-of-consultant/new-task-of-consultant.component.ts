@@ -39,6 +39,7 @@ export class NewTaskOfConsultantComponent implements OnInit {
       id:0,
       email:'',
       password:'',
+      phone:0,
       username:'',
       roles:[{
         id:0,

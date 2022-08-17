@@ -37,6 +37,7 @@ export class ProfilconsultantComponent implements OnInit {
       email:'',
       password:'',
       username:'',
+      phone:0,
       roles:[{
         id:0,
         name:''

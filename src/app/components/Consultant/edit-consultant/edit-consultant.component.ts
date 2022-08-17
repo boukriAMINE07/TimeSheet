@@ -15,6 +15,7 @@ export class EditConsultantComponent implements OnInit {
     username:'',
     email:'',
     password:'',
+    phone:0,
     roles:[]
 
   }
