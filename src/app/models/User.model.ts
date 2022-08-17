@@ -4,6 +4,7 @@ export interface User {
   email: string
   password: string
   roles: Role[]
+  phone:number
 }
 
 export interface Role {
