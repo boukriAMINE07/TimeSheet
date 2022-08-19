@@ -30,6 +30,7 @@ import {
 import {RegisterComponent} from "./components/Admin/authAdmin/register/register.component";
 import {AuthAdminGuard} from "./guards/auth-admin.guard";
 import {AuthUserGuard} from "./guards/auth-user.guard";
+import {NewTaskComponent} from "./components/profile/new-task/new-task.component";
 
 
 const routes: Routes = [
@@ -50,7 +51,7 @@ const routes: Routes = [
     children: [
       {path:'',redirectTo:'profile',pathMatch:'full'},
       {path:'profile', component: ProfilconsultantComponent},
-      {path:"newTaskOfConsultant",component:NewTaskOfConsultantComponent},
+      {path:"newTaskOfConsultant",component:NewTaskComponent},
 
     ]
   },

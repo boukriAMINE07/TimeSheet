@@ -41,6 +41,7 @@ export class EditConsultantComponent implements OnInit {
       id: this.currentUser.id,
       username:this.currentUser.username,
       email:this.currentUser.email,
+      phone: this.currentUser.phone
     }
     this.service.updateConsultant(this.currentUser.id,data)
       .subscribe(response=>{
