@@ -36,6 +36,8 @@ import {NgxPaginationModule} from "ngx-pagination";
 import { SingleTaskOfConsultantComponent } from './components/TaskOfConsultant/single-task-of-consultant/single-task-of-consultant.component';
 import {httpInterceptorProviders} from "./helpers/http.interceptor";
 import { RegisterComponent } from './components/Admin/authAdmin/register/register.component';
+import { NavbarProfileComponent } from './components/profile/navbar-profile/navbar-profile.component';
+import { NewTaskComponent } from './components/profile/new-task/new-task.component';
 
 
 
@@ -69,7 +71,10 @@ import { RegisterComponent } from './components/Admin/authAdmin/register/registe
     HomeTaskOfConsultantComponent,
     NewTaskOfConsultantComponent,
     SingleTaskOfConsultantComponent,
-    RegisterComponent
+    RegisterComponent,
+
+    NavbarProfileComponent,
+      NewTaskComponent
 
   ],
   imports: [

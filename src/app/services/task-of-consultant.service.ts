@@ -40,6 +40,10 @@ export class TaskOfConsultantService {
 
     return this.http.get<any>(baseUrl+'/searchConsultant?consultant='+name,{params});
   }
+  getAllTaskOfConsultantByConsultantName(name:string):Observable<TaskOfConsultant[]>{
+
+    return this.http.get<TaskOfConsultant[]>(baseUrl+'/searchConsultantByName?consultant='+name);
+  }
   getTaskOfConsultantByTaskName(name:string):Observable<TaskOfConsultant[]>{
     const params=new HttpParams().set('task',name)
     return this.http.get<TaskOfConsultant[]>(`${baseUrl}/searchTask`,{params});

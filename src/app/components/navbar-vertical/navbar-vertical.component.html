@@ -5,9 +5,9 @@
       <img src="assets/images/brand/logo/logo.png" alt="" />&nbsp;Expertise Data
     </a>
     <!-- Navbar nav -->
-    <ul class="navbar-nav flex-column" id="sideNavbar">
+    <ul class="navbar-nav flex-column" *ngIf="showAdminBoard" id="sideNavbar">
       <li class="nav-item">
-        <a class="nav-link has-arrow "  routerLinkActive="active" routerLink="/project/home">
+        <a class="nav-link has-arrow "   routerLinkActive="active" routerLink="/project/home">
           <i class="nav-icon icon-xs me-2  bi bi-house-door active"></i> &nbsp; Dashboard
         </a>
 

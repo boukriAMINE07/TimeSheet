@@ -4,7 +4,7 @@
       <!-- Page header -->
 
       <div class="border-bottom pb-4 mb-4">
-        <h3 class="mb-0 fw-bold">Edit Project</h3>
+        <h3 class="mb-0 fw-bold">Edit Consultant</h3>
 
       </div>
 
@@ -37,7 +37,7 @@
                 <label for="username" class="col-sm-4 col-form-label
                           form-label">username</label>
                 <div class="col-md-8 col-12">
-                  <textarea type="text" class="form-control" [(ngModel)]="currentUser.username" name="username" placeholder="username" id="username" required></textarea>
+                  <input type="text" class="form-control" [(ngModel)]="currentUser.username" name="username" placeholder="username" id="username" required>
                 </div>
               </div>
               <!-- row -->
@@ -46,6 +46,13 @@
                           form-label">Email </label>
                 <div class="col-md-8 col-12">
                   <input type="text" [(ngModel)]="currentUser.email" name="email" class="form-control" value="" id="email" required>
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <label for="phone" class="col-sm-4 col-form-label
+                          form-label">Phone </label>
+                <div class="col-md-8 col-12">
+                  <input type="text" [(ngModel)]="currentUser.phone" name="phone" class="form-control" value="" id="phone" required>
                 </div>
               </div>
               <!-- row -->
