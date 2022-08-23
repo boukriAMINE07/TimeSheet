@@ -38,17 +38,20 @@ export class TaskOfConsultantService {
   }
   getTaskOfConsultantByConsultantName(name:string,params:any):Observable<any>{
 
-    return this.http.get<any>(baseUrl+'/searchConsultant?consultant='+name,{params});
+    return this.http.get<any>(baseUrl+'/pageTaskOfConsultantsByDate?name='+name,{params});
   }
   getAllTaskOfConsultantByConsultantName(name:string):Observable<TaskOfConsultant[]>{
 
     return this.http.get<TaskOfConsultant[]>(baseUrl+'/searchConsultantByName?consultant='+name);
+  }
+  getAllTaskOfConsultantByProjectName(name:string):Observable<TaskOfConsultant[]>{
+    return this.http.get<TaskOfConsultant[]>(baseUrl+'/searchByProject?name='+name);
   }
   getTaskOfConsultantByTaskName(name:string):Observable<TaskOfConsultant[]>{
     const params=new HttpParams().set('task',name)
     return this.http.get<TaskOfConsultant[]>(`${baseUrl}/searchTask`,{params});
   }
   getAllTaskWithPagination(params:any):Observable<any>{
-    return this.http.get<any>(baseUrl+'/pageTaskOfConsultants', { params });
+    return this.http.get<any>(baseUrl+'/pageTaskOfConsultantsByDate', { params });
   }
 }

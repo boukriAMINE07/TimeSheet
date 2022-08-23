@@ -8,4 +8,6 @@ export interface TaskOfConsultant{
   task: Task
   duration: number
   state:string
+  startDate?:string
+  endDate?:string
 }
