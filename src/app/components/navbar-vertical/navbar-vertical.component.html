@@ -14,56 +14,43 @@
       </li>
 
 
-      <!-- Nav item -->
-      <li class="nav-item">
-        <div class="navbar-heading">Layouts & Pages</div>
-      </li>
+
 
 
       <!-- Nav item -->
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLoggedIn && this.roles.includes('ROLE_ADMIN')">
         <a class="nav-link has-arrow " href="#!" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
-          <i
-
-
-            class="nav-icon icon-xs me-2 bi bi-stack">
-          </i>&nbsp; Pages
+          <i class="nav-icon icon-xs me-2 bi bi-stack">
+          </i>&nbsp;Pages
         </a>
 
         <div id="navPages" class="collapse " data-bs-parent="#sideNavbar">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="/user/profile">
-                Profile
+              <a class="nav-link" routerLinkActive="active" routerLink="/project/home">
+                Projects
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link has-arrow "  href="settings.html" >
-                Settings
+              <a class="nav-link has-arrow " routerLink="/task/home" >
+                Tasks
               </a>
 
-            </li>
-
-
-            <li class="nav-item">
-              <a class="nav-link " href="billing.html">
-                Billing
-              </a>
-            </li>
-
-
-
-
-            <li class="nav-item">
-              <a class="nav-link " href="pricing.html">
-                Pricing
-              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " routerLink="/error">
-                404 Error
+              <a class="nav-link has-arrow "  routerLink="/consultant/listeConsultant" >
+                Users
               </a>
+
             </li>
+            <li class="nav-item">
+              <a class="nav-link has-arrow " routerLink="/consultant/TaskOfConsultant" >
+                Consultant's tasks
+              </a>
+
+            </li>
+
+
           </ul>
         </div>
 
@@ -83,71 +70,12 @@
             <li class="nav-item" >
               <a  class="nav-link" routerLink="admin/createConsultant">Create Consultant</a>
             </li>
-            <!--<li class="nav-item">
-              <a class="nav-link" routerLinkActive="active" routerLink="admin/signIn">Login</a>
-            </li>-->
           </ul>
 
-          <!--<ul class="navbar-nav ml-auto" *ngIf="isLoggedIn" >
-            <li class="nav-item">
-              <a  class="nav-link" routerLink="consultant/profile">{{ username }}</a>
-            </li>
-            &lt;!&ndash;<li class="nav-item">
-              <a href class="nav-link" (click)="logout()">LogOut</a>
-            </li>&ndash;&gt;
-          </ul>-->
-
           <ul class="nav flex-column">
-            <!--<li class="nav-item">
-              <a class="nav-link " routerLinkActive="active" routerLink="admin/signIn"> Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link "  routerLink="admin/createConsultant"> Sign Up</a>
-            </li>-->
-            <li class="nav-item">
-              <a class="nav-link " routerLink="admin/forgetPassword">
-                Forget Password
-              </a>
-            </li>
-
           </ul>
         </div>
       </li>
-      <!--<li class="nav-item">
-        <a class="nav-link has-arrow " href="#!" data-bs-toggle="collapse" data-bs-target="#navAuthenticationConsultant" aria-expanded="false" aria-controls="navAuthentication">
-          <i  class="nav-icon icon-xs me-2 bi bi-box-arrow-right">
-          </i>&nbsp; Consultant
-        </a>
-        <div id="navAuthenticationConsultant" class="collapse " data-bs-parent="#sideNavbar">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link " routerLinkActive="active" routerLink="consultant/signIn"> Sign In</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link " routerLinkActive="active" routerLink="consultant/forgetPassword">
-                Forget Password
-              </a>
-            </li>
-
-          </ul>
-        </div>
-      </li>
--->
-
-      <!-- Nav item -->
-
-
-      <!-- Nav item -->
-
-
-
-
-
-
-
-
-
 
     </ul>
 

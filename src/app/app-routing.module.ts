@@ -7,7 +7,6 @@ import {HometachesComponent} from "./components/taches/hometaches/hometaches.com
 import {SingleTacheComponent} from "./components/taches/single-tache/single-tache.component";
 import {EditTacheComponent} from "./components/taches/edit-tache/edit-tache.component";
 import {ProfilconsultantComponent} from "./components/profilconsultant/profilconsultant.component";
-import {SignInComponent} from "./components/Consultant/sign-in/sign-in.component";
 import {ForgetPasswordComponent} from "./components/Consultant/forget-password/forget-password.component";
 import {ErrorComponent} from "./components/error/error.component";
 import {SingleProjectComponent} from "./components/projects/single-project/single-project.component";
@@ -31,6 +30,7 @@ import {RegisterComponent} from "./components/Admin/authAdmin/register/register.
 import {AuthAdminGuard} from "./guards/auth-admin.guard";
 import {AuthUserGuard} from "./guards/auth-user.guard";
 import {NewTaskComponent} from "./components/profile/new-task/new-task.component";
+import {DetailsComponent} from "./components/profile/details/details.component";
 
 
 const routes: Routes = [
@@ -52,7 +52,8 @@ const routes: Routes = [
       {path:'',redirectTo:'profile',pathMatch:'full'},
       {path:'profile', component: ProfilconsultantComponent},
       {path:"newTaskOfConsultant",component:NewTaskComponent},
-
+      {path:"Details/:id",component: DetailsComponent},
+      {path:"single-taskOfConsultant/:id",component:SingleTaskOfConsultantComponent},
     ]
   },
   {

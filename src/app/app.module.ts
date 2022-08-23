@@ -10,7 +10,6 @@ import { NewProjectComponent } from './components/projects/new-project/new-proje
 import { SignInAdminComponent } from './components/Admin/authAdmin/sign-in-admin/sign-in-admin.component';
 import { ForgetPasswordAdminComponent } from './components/Admin/authAdmin/forget-password-admin/forget-password-admin.component';
 import { SignInComponent } from './components/Consultant/sign-in/sign-in.component';
-import { SignUpComponent } from './components/Admin/authAdmin/sign-up/sign-up.component';
 import { ForgetPasswordComponent } from './components/Consultant/forget-password/forget-password.component';
 import { ErrorComponent } from './components/error/error.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -38,6 +37,7 @@ import {httpInterceptorProviders} from "./helpers/http.interceptor";
 import { RegisterComponent } from './components/Admin/authAdmin/register/register.component';
 import { NavbarProfileComponent } from './components/profile/navbar-profile/navbar-profile.component';
 import { NewTaskComponent } from './components/profile/new-task/new-task.component';
+import { DetailsComponent } from './components/profile/details/details.component';
 
 
 
@@ -51,7 +51,6 @@ import { NewTaskComponent } from './components/profile/new-task/new-task.compone
     NavbarVerticalComponent,
     NewProjectComponent,
     SignInComponent,
-    SignUpComponent,
     ForgetPasswordComponent,
     SignInAdminComponent,
     ForgetPasswordAdminComponent,
@@ -74,7 +73,8 @@ import { NewTaskComponent } from './components/profile/new-task/new-task.compone
     RegisterComponent,
 
     NavbarProfileComponent,
-      NewTaskComponent
+      NewTaskComponent,
+      DetailsComponent
 
   ],
   imports: [

@@ -68,7 +68,7 @@
             <ng-container *ngFor="let taskOfConsulatnt of taskOfConsultants; let idx=index; let even=even">
               <tr  >
 
-                <td class="align-middle "  ><a routerLink="/consultant/single-taskOfConsultant/{{taskOfConsulatnt.id}}"> {{taskOfConsulatnt.task.project.name}}</a></td>
+                <td class="align-middle "  ><a routerLink="/user/Details/{{taskOfConsulatnt.id}}"> {{taskOfConsulatnt.task.project.name}}</a></td>
                 <td class="align-middle"><span>{{taskOfConsulatnt.task.name}}</span></td>
 
                 <td>{{taskOfConsulatnt.startDate}}</td>

@@ -18,7 +18,7 @@
     </div>
 
 
-  <app-all-project-task-consultant></app-all-project-task-consultant>
+    <app-all-project-task-consultant></app-all-project-task-consultant>
   </div>
   <!-- row  -->
   <div class="row mt-6">
@@ -31,12 +31,12 @@
             <div class="col-md-4">  <h4 class="mt-2">Active Projects</h4></div>
             <div class="col-md-7">
               <div class="ms-lg-3  d-md-none d-lg-block">
-              <!-- Form -->
-              <form class="d-flex align-items-center">
-                <input type="search" class="form-control" [(ngModel)]="name"
-                       (keyup)="searchName($event)" placeholder="Search By Name Of Project" />
-              </form>
-            </div>
+                <!-- Form -->
+                <form class="d-flex align-items-center">
+                  <input type="search" class="form-control" [(ngModel)]="name"
+                         (keyup)="searchName($event)" placeholder="Search By Name Of Project" />
+                </form>
+              </div>
             </div>
             <div class="col-md-1"></div>
           </div>
@@ -58,71 +58,71 @@
             </thead>
             <tbody>
             <ng-container *ngFor="let project of projects">
-            <tr  >
-              <td class="align-middle">
-                <div class="d-flex
+              <tr  >
+                <td class="align-middle">
+                  <div class="d-flex
                             align-items-center">
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1"> <a routerLink="/project/single-project/{{project.id}}" class="text-inherit ">{{project.name}}</a></h5>
+                    <div class="ms-3 lh-1">
+                      <h5 class=" mb-1"> <a routerLink="/project/single-project/{{project.id}}" class="text-inherit ">{{project.name}}</a></h5>
 
+                    </div>
                   </div>
-                </div>
-              </td>
-              <td class="align-middle ">
+                </td>
+                <td class="align-middle ">
                 <span class="d-inline-block text-truncate" style="max-width: 250px;">
                   {{project.description}}
                </span>
 
-               </td>
-              <td class="align-middle">{{project.startDate}}</td>
-              <td class="align-middle">{{project.endDate}}</td>
-              <td class="align-middle ">
-                <form [formGroup]="formGroup"  method="post">
-                  <div class="row">
-                    <div class="col-md-2 mt-2">  {{project.totalHours}}</div>
+                </td>
+                <td class="align-middle">{{project.startDate}}</td>
+                <td class="align-middle">{{project.endDate}}</td>
+                <td class="align-middle ">
+                  <form [formGroup]="formGroup"  method="post">
+                    <div class="row">
+                      <div class="col-md-2 mt-2">  {{project.totalHours}}</div>
 
-                    <div class="col-md-auto">
-                      <button type="button" (click)="CurrentHours(project)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
-                        Edit Hours
-                      </button>
-                      <!-- Modal -->
-                    </div>
-                    <!-- Button trigger modal -->
-                    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                      <div class="modal-dialog modal-dialog-scrollable" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalScrollableTitle">Total Hours</h5>
-                            <button type="button" id="Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true"></span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            <div class="mb-3">
-                              <label for="hours" class="form-label">Total Hours</label>
-                              <input class="form-control" type="number" name="totalHours" formControlName="totalHours"  id="hours" min="1" >
+                      <div class="col-md-auto">
+                        <button type="button" (click)="CurrentHours(project)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+                          Edit Hours
+                        </button>
+                        <!-- Modal -->
+                      </div>
+                      <!-- Button trigger modal -->
+                      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalScrollableTitle">Total Hours</h5>
+                              <button type="button" id="Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                              </button>
                             </div>
-                          </div>
+                            <div class="modal-body">
+                              <div class="mb-3">
+                                <label for="hours" class="form-label">Total Hours</label>
+                                <input class="form-control" type="number" name="totalHours" formControlName="totalHours"  id="hours" min="1" >
+                              </div>
+                            </div>
 
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button"  (click)="UpdateHours()" class="btn btn-primary">Save changes</button>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="button"  (click)="UpdateHours()" class="btn btn-primary">Save changes</button>
+                            </div>
                           </div>
                         </div>
                       </div>
+
                     </div>
+                    <!-- Button trigger modal -->
 
-                  </div>
-                  <!-- Button trigger modal -->
-
-                  <!-- Modal -->
+                    <!-- Modal -->
 
 
 
-                </form>
+                  </form>
 
-              </td>
-            </tr>
+                </td>
+              </tr>
             </ng-container>
 
 
@@ -137,21 +137,21 @@
             <ul class="pagination justify-content-center">
               <pagination-controls
 
-              previousLabel="Previous"
-              nextLabel="Next"
-              [responsive]="true"
-              (pageChange)="handlePageChange($event)"
+                previousLabel="Previous"
+                nextLabel="Next"
+                [responsive]="true"
+                (pageChange)="handlePageChange($event)"
               >
                 <!-- center alignment -->
 
-                    <li class="page-item" *ngFor="
+                <li class="page-item" *ngFor="
           let project of projects | paginate : {
                   itemsPerPage: pageSize,
                   currentPage: page,
                   totalItems: count
                 };
                  let i = index" >
-                      <a class="page-link" href="#">{{i}}</a></li>
+                  <a class="page-link" href="#">{{i}}</a></li>
 
               </pagination-controls>
             </ul>
@@ -162,257 +162,7 @@
 
     </div>
   </div>
-  <!-- row  -->
-  <div class="row my-6">
-    <div class="col-xl-4 col-lg-12 col-md-12 col-12 mb-6 mb-xl-0">
-      <!-- card  -->
-      <div class="card h-100">
-        <!-- card body  -->
-        <div class="card-body">
-          <div class="d-flex align-items-center
-                    justify-content-between">
-            <div>
-              <h4 class="mb-0">Tasks Performance </h4>
-            </div>
-            <!-- dropdown  -->
-            <div class="dropdown dropstart">
-              <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTask" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="icon-xxs" data-feather="more-vertical"></i>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownTask">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </div>
-          </div>
-          <!-- chart  -->
-          <div class="mb-8">
-            <div id="perfomanceChart"></div>
-          </div>
-          <!-- icon with content  -->
-          <div class="d-flex align-items-center justify-content-around">
-            <div class="text-center">
-              <i class="icon-sm text-success" data-feather="check-circle"></i>
-              <h1 class="mt-3  mb-1 fw-bold">76%</h1>
-              <p>Completed</p>
-            </div>
-            <div class="text-center">
-              <i class="icon-sm text-warning" data-feather="trending-up"></i>
-              <h1 class="mt-3  mb-1 fw-bold">32%</h1>
-              <p>In-Progress</p>
-            </div>
-            <div class="text-center">
-              <i class="icon-sm text-danger" data-feather="trending-down"></i>
-              <h1 class="mt-3  mb-1 fw-bold">13%</h1>
-              <p>Behind</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- card  -->
-    <div class="col-xl-8 col-lg-12 col-md-12 col-12">
-      <div class="card h-100">
-        <!-- card header  -->
-        <div class="card-header bg-white py-4">
-          <h4 class="mb-0">Teams </h4>
-        </div>
-        <!-- table  -->
-        <div class="table-responsive">
-          <table class="table text-nowrap">
-            <thead class="table-light">
-            <tr>
-              <th>Name</th>
-              <th>Role</th>
-              <th>Last Activity</th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td class="align-middle">
-                <div class="d-flex align-items-center">
-                  <div>
-                    <img src="assets/images/avatar/avatar-2.jpg" alt="" class="avatar-md avatar rounded-circle">
-                  </div>
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1">Anita Parmar</h5>
-                    <p class="mb-0">anita@example.com</p>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle">Front End Developer</td>
-              <td class="align-middle">3 May, 2021</td>
-              <td class="align-middle">
-                <div class="dropdown dropstart">
-                  <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamOne" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownTeamOne">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else
-                      here</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="align-middle">
-                <div class="d-flex align-items-center">
-                  <div>
-                    <img src="assets/images/avatar/avatar-1.jpg" alt="" class="avatar-md avatar rounded-circle">
-                  </div>
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1">Jitu Chauhan</h5>
-                    <p class="mb-0">jituchauhan@example.com</p>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle">Project Director </td>
-              <td class="align-middle">Today</td>
-              <td class="align-middle">
-                <div class="dropdown dropstart">
-                  <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamTwo" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="dropdownTeamTwo">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else
-                      here</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="align-middle">
-                <div class="d-flex align-items-center">
-                  <div>
-                    <img src="assets/images/avatar/avatar-3.jpg" alt="" class="avatar-md avatar rounded-circle">
-                  </div>
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1">Sandeep Chauhan</h5>
-                    <p class="mb-0">sandeepchauhan@example.com</p>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle">Full- Stack Developer</td>
-              <td class="align-middle">Yesterday</td>
-              <td class="align-middle">
-                <div class="dropdown dropstart">
-                  <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamThree" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                  </a>
 
-                  <div class="dropdown-menu" aria-labelledby="dropdownTeamThree">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else
-                      here</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="align-middle">
-                <div class="d-flex align-items-center">
-
-                  <div>
-                    <img src="assets/images/avatar/avatar-4.jpg" alt="" class="avatar-md avatar rounded-circle">
-                  </div>
-
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1">Amanda Darnell</h5>
-                    <p class="mb-0">amandadarnell@example.com</p>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle">Digital Marketer</td>
-              <td class="align-middle">3 May, 2021</td>
-              <td class="align-middle">
-                <div class="dropdown dropstart">
-                  <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamFour" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                  </a>
-
-                  <div class="dropdown-menu" aria-labelledby="dropdownTeamFour">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else
-                      here</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-
-              <td class="align-middle">
-                <div class="d-flex align-items-center">
-
-                  <div>
-                    <img src="assets/images/avatar/avatar-5.jpg" alt="" class="avatar-md avatar rounded-circle">
-                  </div>
-
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1">Patricia Murrill</h5>
-                    <p class="mb-0">patriciamurrill@example.com</p>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle">Account Manager</td>
-              <td class="align-middle">3 May, 2021</td>
-              <td class="align-middle">
-                <div class="dropdown dropstart">
-                  <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamFive" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                  </a>
-
-                  <div class="dropdown-menu" aria-labelledby="dropdownTeamFive">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else
-                      here</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td class="align-middle border-bottom-0">
-                <div class="d-flex align-items-center">
-                  <div>
-                    <img src="assets/images/avatar/avatar-6.jpg" alt="" class="avatar-md avatar rounded-circle">
-                  </div>
-                  <div class="ms-3 lh-1">
-                    <h5 class=" mb-1">Darshini Nair</h5>
-                    <p class="mb-0">darshininair@example.com</p>
-                  </div>
-                </div>
-              </td>
-              <td class="align-middle border-bottom-0">Front End Developer</td>
-              <td class="align-middle border-bottom-0">3 May, 2021</td>
-              <td class="align-middle border-bottom-0">
-                <div class="dropdown dropstart">
-                  <a class="text-muted text-primary-hover" href="#" role="button" id="dropdownTeamSix" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="icon-xxs" data-feather="more-vertical"></i>
-                  </a>
-
-                  <div class="dropdown-menu" aria-labelledby="dropdownTeamSix">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else
-                      here</a>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 
