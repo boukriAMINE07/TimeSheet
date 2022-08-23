@@ -40,9 +40,14 @@ export class HomeTaskOfConsultantComponent implements OnInit {
         name:''
       }]
     },
+
     state:'',
-    duration:0
+    duration:0,
+    startDate:'',
+    endDate:''
   }
+  start='';
+  end='';
   currentIndex = -1;
   name = '';
   page = 1;
@@ -75,6 +80,7 @@ export class HomeTaskOfConsultantComponent implements OnInit {
     if (searchTaskOfConsultant) {
       params[`name`] = searchTaskOfConsultant;
     }
+
     if (page) {
       params[`page`] = page - 1;
     }
@@ -89,9 +95,7 @@ export class HomeTaskOfConsultantComponent implements OnInit {
       .subscribe(
         response => {
           const { taskOfConsultants, totalItems } = response;
-
             this.taskOfConsultants = taskOfConsultants;
-
             this.count = totalItems;
             console.log(this.taskOfConsultants);
 
@@ -113,6 +117,7 @@ export class HomeTaskOfConsultantComponent implements OnInit {
   }
 
 
+
   UpdateHours() {
     this.currentTaskOfConsultant.duration=this.formGroup.value.duration;
 
@@ -126,6 +131,13 @@ export class HomeTaskOfConsultantComponent implements OnInit {
       },error => {
         console.log(error)
       })
+
+  }
+
+  filterByDate() {
+
+    this.retrieveTaskOfConsultant()
+
 
   }
 }

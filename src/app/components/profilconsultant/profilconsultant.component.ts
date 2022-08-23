@@ -59,6 +59,8 @@ export class ProfilconsultantComponent implements OnInit {
     },
     duration: 0
   }
+  start='';
+  end='';
   currentIndex = -1;
   name = '';
   taskName = '';
@@ -203,7 +205,7 @@ export class ProfilconsultantComponent implements OnInit {
         })(jQuery);
   }
 
-  getRequestParams(searchTaskOfConsultant: string, taskName: string, page: number, pageSize: number): any {
+  getRequestParams(searchTaskOfConsultant: string, taskName: string,startDate:string,endDate:string, page: number, pageSize: number): any {
     let params: any = {};
     if (searchTaskOfConsultant) {
       params[`consultant`] = searchTaskOfConsultant;
@@ -217,11 +219,17 @@ export class ProfilconsultantComponent implements OnInit {
     if (taskName) {
       params[`task`] = taskName;
     }
+    if (startDate) {
+      params[`start`] = startDate;
+    }
+    if (endDate) {
+      params[`end`] = endDate;
+    }
     return params;
   }
 
   retrieveTaskOfConsultant(): void {
-    const params = this.getRequestParams(this.name, this.taskName, this.page, this.pageSize);
+    const params = this.getRequestParams(this.name, this.taskName, this.start,this.end,this.page, this.pageSize);
     this.taskOfConsultantService.getTaskOfConsultantByConsultantName(this.currentUser.username, params)
       .subscribe(
         response => {
@@ -237,6 +245,27 @@ export class ProfilconsultantComponent implements OnInit {
         });
   }
 
+  filterByDate() {
+    console.log(this.start)
+    console.log(this.end)
+
+      const params = this.getRequestParams(this.name, this.taskName, this.start,this.end,this.page, this.pageSize);
+      this.taskOfConsultantService.getTaskOfConsultantByConsultantName(this.currentUser.username, params)
+        .subscribe(
+          response => {
+            const {taskOfConsultants, totalItems} = response;
+            this.taskOfConsultants = taskOfConsultants;
+            console.log(this.taskOfConsultants)
+            this.count = totalItems;
+
+
+          },
+          error => {
+            console.log(error);
+          });
+
+
+  }
   handlePageChange(event: number): void {
     this.page = event;
     this.retrieveTaskOfConsultant();

@@ -11,7 +11,7 @@
         <div class="card-header bg-white  py-4">
 
           <div class="row">
-            <div class="col-md-6">   <h4 class="mt-2 p-0">Temps de distribution des taches en heures</h4></div>
+            <div class="col-md-5">   <h4 class="mt-2 p-0">Temps de distribution des taches en heures</h4></div>
             <div class="col-md-6">
               <div class="ms-lg-3   d-lg-block">
                 <form class="d-flex align-items-center">
@@ -21,7 +21,31 @@
               </div>
             </div>
 
-          </div>
+          </div><form>
+          <div class="row mt-3">
+
+              <label for="startDat" class="col-md-2 col-form-label
+                          form-label">Start Date </label>
+              <div class="col-md-3 ">
+                <input type="date" [(ngModel)]="start" name="start" class="form-control" value="" id="startDat" required>
+              </div>
+
+
+              <label for="endDate" class="col-md-2 col-form-label
+                          form-label">End Date </label>
+              <div class="col-md-3">
+                <input type="date" [(ngModel)]="end" name="end" class="form-control" value="Project End date" id="endDate" required>
+              </div>
+
+              <div class="col-md-auto">
+                <button type="button"  (click)="filterByDate()" class="btn btn-primary" >
+                  Search
+                </button>
+                <!-- Modal -->
+              </div>
+
+
+        </div> </form>
         </div>
 
         <!-- table  -->
@@ -31,9 +55,12 @@
             <tr >
               <th>Projets</th>
               <th >taches</th>
+
+
+              <th>Start Date</th>
+              <th>End Date</th>
               <th>suivi du travail</th>
               <th>Heures de travail</th>
-
             </tr>
             </thead>
             <tbody >
@@ -43,12 +70,15 @@
 
                 <td class="align-middle "  ><a routerLink="/consultant/single-taskOfConsultant/{{taskOfConsulatnt.id}}"> {{taskOfConsulatnt.task.project.name}}</a></td>
                 <td class="align-middle"><span>{{taskOfConsulatnt.task.name}}</span></td>
+
+                <td>{{taskOfConsulatnt.startDate}}</td>
+                <td>{{taskOfConsulatnt.endDate}}</td>
                 <td class="align-middle "><span *ngIf="taskOfConsulatnt.state!='DONE'"  [ngClass]="taskOfConsulatnt.state==='PROGRESSE'  ? 'bg-warning' : 'bg-danger'"  class="badge ">
                 {{taskOfConsulatnt.state}}
 
                 </span>
-                  <span *ngIf="taskOfConsulatnt.state=='DONE'"    class="badge bg-success">{{taskOfConsulatnt.state}}</span>
-                </td>
+                <span *ngIf="taskOfConsulatnt.state=='DONE'"    class="badge bg-success">{{taskOfConsulatnt.state}}</span>
+              </td>
                 <td class="text-center ">
                   <div class="row">
                     <div class="col-md-3 mt-2">
