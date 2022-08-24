@@ -27,8 +27,8 @@ export class ConsultantService {
   getAllConsultants():Observable<Consultant[]>{
     return this.http.get<Consultant[]>(baseUrl);
   }
-  getAllUsers():Observable<any>{
-    return this.http.get<any>("http://localhost:8080/users/usersByRole?userRole=ROLE_USER");
+  getAllUsers():Observable<User[]>{
+    return this.http.get<User[]>(baseUrl+"/usersByRoleUser");
   }
   getAllUsersWithPagination(params:any):Observable<any>{
     return this.http.get<any>(baseUrl+'/pageUsers', { params });

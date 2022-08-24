@@ -45,6 +45,8 @@ export class NewTaskComponent implements OnInit {
         name:''
       }]
     },
+    startDate:'',
+    endDate:'',
     duration:0
   }
   task!:Task[]
@@ -118,6 +120,8 @@ export class NewTaskComponent implements OnInit {
       state:this.taskOfConsultant.state,
       user: this.taskOfConsultant.user,
       duration: this.taskOfConsultant.duration,
+      startDate: this.taskOfConsultant.startDate,
+      endDate: this.taskOfConsultant.endDate
 
 
     }

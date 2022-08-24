@@ -11,6 +11,9 @@ import {Role} from "../../../models/User.model";
 })
 export class SingleTaskOfConsultantComponent implements OnInit {
 
+  roles: string[] = [];
+
+  isAdmin = false;
   currentTaskOfConsultant:TaskOfConsultant={
     id:0,
     state:'',
@@ -46,6 +49,7 @@ export class SingleTaskOfConsultantComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTAskOfConsultantt(this.route.snapshot.params['id']);
+
   }
   getTAskOfConsultantt(id:number){
     this.taskOfConsultantService.getTaskOfConsultant(id).
