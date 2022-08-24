@@ -118,6 +118,8 @@ export class NewTaskOfConsultantComponent implements OnInit {
       state:this.taskOfConsultant.state,
       user: this.taskOfConsultant.user,
       duration: this.taskOfConsultant.duration,
+      startDate: this.taskOfConsultant.startDate,
+      endDate: this.taskOfConsultant.endDate
 
 
     }
