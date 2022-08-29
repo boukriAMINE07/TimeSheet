@@ -273,6 +273,7 @@ export class ProfilconsultantComponent implements OnInit {
 
   searchName(event: KeyboardEvent): void {
     this.taskName = (event.target as HTMLInputElement).value;
+    console.log(this.taskName)
     this.page = 1;
     this.retrieveTaskOfConsultant();
   }

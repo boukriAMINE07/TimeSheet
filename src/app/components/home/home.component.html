@@ -52,8 +52,7 @@
               <th>Project name</th>
               <th>Description</th>
               <th>Start Date</th>
-              <th>End Date</th>
-              <th>Hours</th>
+
             </tr>
             </thead>
             <tbody>
@@ -69,57 +68,23 @@
                   </div>
                 </td>
                 <td class="align-middle ">
-                <span class="d-inline-block text-truncate" style="max-width: 250px;">
+                <span class="d-inline-block text-truncate" style="max-width: 350px;">
                   {{project.description}}
                </span>
 
                 </td>
                 <td class="align-middle">{{project.startDate}}</td>
-                <td class="align-middle">{{project.endDate}}</td>
-                <td class="align-middle ">
-                  <form [formGroup]="formGroup"  method="post">
-                    <div class="row">
-                      <div class="col-md-2 mt-2">  {{project.totalHours}}</div>
 
-                      <div class="col-md-auto">
-                        <button type="button" (click)="CurrentHours(project)" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
-                          Edit Hours
+                <td class="align-middle ">
+                        <button routerLink="/project/single-project/{{project.id}}" type="button"  class="btn btn-primary" >
+                          More information
                         </button>
                         <!-- Modal -->
-                      </div>
                       <!-- Button trigger modal -->
-                      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-scrollable" role="document">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalScrollableTitle">Total Hours</h5>
-                              <button type="button" id="Close" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"></span>
-                              </button>
-                            </div>
-                            <div class="modal-body">
-                              <div class="mb-3">
-                                <label for="hours" class="form-label">Total Hours</label>
-                                <input class="form-control" type="number" name="totalHours" formControlName="totalHours"  id="hours" min="1" >
-                              </div>
-                            </div>
-
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <button type="button"  (click)="UpdateHours()" class="btn btn-primary">Save changes</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
                     <!-- Button trigger modal -->
-
                     <!-- Modal -->
 
 
-
-                  </form>
 
                 </td>
               </tr>

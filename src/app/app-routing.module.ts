@@ -42,9 +42,16 @@ const routes: Routes = [
   {path:"consultant/forgetPassword",component:ForgetPasswordComponent},
   {path:"admin/forgetPassword",component:ForgetPasswordAdminComponent},
 
-
+  {
+    path: 'admin',
+    canActivate: [AuthAdminGuard],
+    children: [
+      {path:"createConsultant",component:RegisterComponent},
+    ]
+  },
 
   {path:"error",component:ErrorComponent},
+
   {
     path: 'user',
     canActivate: [AuthUserGuard],
