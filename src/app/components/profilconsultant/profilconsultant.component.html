@@ -69,8 +69,8 @@
                 <td class="align-middle "  ><a routerLink="/user/Details/{{taskOfConsulatnt.id}}"> {{taskOfConsulatnt.task.project.name}}</a></td>
                 <td class="align-middle"><span>{{taskOfConsulatnt.task.name}}</span></td>
 
-                <td>{{taskOfConsulatnt.startDate}}</td>
-                <td>{{taskOfConsulatnt.endDate}}</td>
+                <td class="align-middle ">{{taskOfConsulatnt.startDate}}</td>
+                <td class="align-middle ">{{taskOfConsulatnt.endDate}}</td>
                 <td class="align-middle "><span *ngIf="taskOfConsulatnt.state!='DONE'"  [ngClass]="taskOfConsulatnt.state==='PROGRESSE'  ? 'bg-warning' : 'bg-danger'"  class="badge ">
                 {{taskOfConsulatnt.state}}
 
